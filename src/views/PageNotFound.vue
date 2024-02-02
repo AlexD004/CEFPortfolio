@@ -1,0 +1,10 @@
+
+<template>
+  <main>
+        <h1>Page not found</h1>
+  </main>
+</template>
+
+<script setup>
+
+</script>
