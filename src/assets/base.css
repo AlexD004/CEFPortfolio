@@ -8,13 +8,13 @@
   --c-pink: #C31765;
   --c-beige: #F8F0F1;
 
-  --c-text-light: var(white);
+  --c-text-light: var(--c-beige);
   --c-text-dark: var(--c-dark-blue);
 }
 
 /* semantic color variables for this project */
 :root {
-  --c-background: white;
+  --c-background: --c-beige;
   --c-contact:var(--c-pink);
   --c-portfolio:var(--c-yellow);
   --c-presentation:var(--c-dark-blue);
