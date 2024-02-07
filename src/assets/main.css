@@ -1,6 +1,29 @@
 @import './base.css';
 
+/* GLOBAL LAYOUT */
+.wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Typographies */
+  h1{}
+  h2{}
+  h3{
+    font-size:25px;
+    font-weight: 700;
+  }
+
+
+/* Custom display for responsive */
+.onlyResponsive{display:block;}
+.onlyDesktop{display:none;}
+
+
 
 @media (min-width: 1024px) {
+
+.onlyResponsive{display:none;}
+.onlyDesktop{display:block;}
 
 }
