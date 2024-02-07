@@ -104,15 +104,33 @@ ul{
 }
 li{
     margin: 0 25px;
+    position: relative;
 }
 li a{
     font-weight: 500;
     text-decoration: none;
     color: var(--c-text-dark);
-    border-bottom:0 solid var(--c-pink);
+   /* border-bottom:0 solid var(--c-pink);*/
 }
-li a:hover{
+/*li a:hover{
     border-bottom: 2px solid var(--c-pink);
+}*/
+
+li a::before{
+    content:"";
+    position:absolute;
+    bottom: -2px;
+
+    width: 100%;
+    height: 2px;
+    border-radius: 5px;
+
+    background: var(--c-pink);
+    transform: scaleX(0);
+    transition: .4s ease;
+}
+li a:hover::before{
+    transform: scaleX(1);
 }
 
 /* -- STYLING RESPONSIVE -- */
