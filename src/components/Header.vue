@@ -2,7 +2,7 @@
 
   import ContactButton from '@/components/contactButton.vue';
 
-  /* --- FUNCITONS --- */
+  /* --- FUNCTIONS --- */
 
     /* Toggle responsive menu on clik on open/close buttons */
     function toggleResponsiveMenu() {
@@ -28,10 +28,10 @@
   <header>
 
     <div class="wrapper">
+
         <a href="/"><img id="logo" src="../assets/logo-alexEI.svg" alt="Logo d'Alexandre Dupré EI, un carré bleu dans lequel est écrit Alexandre en rose et jaune" /></a>
       
         <img id="menuBurger" src="../assets/menuBurger.svg" alt="Pictogramme d'ouverture du menu" v-on:click="toggleResponsiveMenu" />
-
         <nav>
             <img id="close" src="../assets/close.svg" alt="Pictogramme de fermeture du menu" v-on:click="toggleResponsiveMenu" />
             <ul>
@@ -52,8 +52,11 @@
 
 /* HEADER STYLES */
 header{
-  position: relative;
-  background: var(--c-beige);
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    width: 100%;
+    background: #FFF;
 }
 header div.wrapper{
   position: relative;
@@ -66,16 +69,16 @@ header div.wrapper{
   padding: 20px;
   height: 50px;
 
-  background: var(--c-beige);
+  background: #FFF;
 }
+/* Using :before to create a little custom dropshadow */
 header:before{
   content:"";
   position:absolute;
   z-index: 1;
   bottom: 0;
   left:50%;
-  transform: translate(-50%,-40%);
-  opacity: .7;
+  transform: translate(-50%,-30%);
 
   width: 50%;
   height: 10px;
@@ -88,16 +91,17 @@ header #logo{
   position: relative;
   z-index:500;
   transform: translate(0,40%);
+  width: 60%;
+  height: auto;
 }
 
-/* -- STYLING LIST -- */
+/* -- STYLING LIST = Navigation -- */
 ul{
     list-style: none;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-
 li{
     margin: 0 25px;
 }
@@ -157,6 +161,10 @@ nav.open li{
 
 @media (min-width: 1024px) {
 
+header #logo{
+  width: 100%;
+  height: auto;
+}
 #menuBurger,
 #close{
     display: none;

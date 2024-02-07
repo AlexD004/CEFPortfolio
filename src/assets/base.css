@@ -1,7 +1,7 @@
-/* Import custom fonts */
+/* -- Import custom fonts -- */
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700;900&display=swap');
 
-/* color palette from <https://github.com/vuejs/theme> */
+/* -- Color palette -- */
 :root {
   --c-dark-blue: #102855;
   --c-yellow: #F1C513;
@@ -12,14 +12,16 @@
   --c-text-dark: var(--c-dark-blue);
 }
 
-/* semantic color variables for this project */
+/* -- Semantic color variables for this project -- */
 :root {
-  --c-background: --c-beige;
+  --c-background: #FFF;
   --c-contact:var(--c-pink);
   --c-portfolio:var(--c-yellow);
   --c-presentation:var(--c-dark-blue);
   --c-text: var(--c-text-dark);
 }
+
+/* -- Global Styles for all project -- */
 
 *,
 *::before,

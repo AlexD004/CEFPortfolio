@@ -6,7 +6,7 @@
 
     <a href="#contact" v-on:click="toggleResponsiveMenu">
         <div class="contactButton">
-            Échangeons sur vos projets !
+            Waouh, faisons connaissance !
         </div>
     </a>
 
@@ -25,10 +25,13 @@
         border-radius: 10px;
         padding: 10px;
         max-height: 30px;
+        max-width:350px;
+        margin: 0 auto;
 
         display: flex;
         justify-content: center;
         align-items: center;
+        text-transform: uppercase;
 
         transition:.3s;
     }

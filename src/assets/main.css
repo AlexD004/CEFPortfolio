@@ -1,18 +1,49 @@
 @import './base.css';
 
-/* GLOBAL LAYOUT */
+/* LAYOUT */
 .wrapper {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
+  max-width: 1280px;
+  margin: 0 auto;
+}
 
-  /* Typographies */
-  h1{}
-  h2{}
-  h3{
-    font-size:25px;
-    font-weight: 700;
-  }
+/* FONTS */
+h1{
+  font-size:35px;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+h2{
+  font-size:25px;
+  font-weight: 600;
+}
+h3{
+  font-size:25px;
+  font-weight: 700;
+  display: inline-block;
+}
+h4{
+  font-size:20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Custom styles */
+.yellowUnderline{
+  display: inline;
+  text-decoration: underline solid 4px var(--c-yellow);
+}
+.yellowHighlight::after{
+  content:"";
+  display: block;
+
+  width: 100%;
+  height: 10px;
+  margin-top: -16px;
+  margin-bottom: 20px;
+
+  background: var(--c-yellow);
+}
 
 
 /* Custom display for responsive */
