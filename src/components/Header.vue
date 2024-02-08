@@ -80,7 +80,7 @@ header:before{
   left:50%;
   transform: translate(-50%,-30%);
 
-  width: 50%;
+  width: 60%;
   height: 10px;
 
   background: #202020;
@@ -110,11 +110,7 @@ li a{
     font-weight: 500;
     text-decoration: none;
     color: var(--c-text-dark);
-   /* border-bottom:0 solid var(--c-pink);*/
 }
-/*li a:hover{
-    border-bottom: 2px solid var(--c-pink);
-}*/
 
 li a::before{
     content:"";
