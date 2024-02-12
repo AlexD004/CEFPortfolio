@@ -25,13 +25,13 @@ function autoHeightTextArea(){
 }
 
 // Setup variables to check if form is not empty
-
-
 const lastnameValue = ref("");
 const firstnameValue = ref("");
 const emailValue = ref("");
 const objectValue = ref("");
 const messageValue = ref("");
+
+const submitOnce = ref(false);
 
 
 </script>
@@ -43,31 +43,31 @@ const messageValue = ref("");
 
   <form v-on:submit.prevent>
     <div class="formItem demiItem">
-      <label for="lastname">Votre NOM*<span :class="{ invalidMessage: lastnameValue.length < 1 }"> - Ce champs est obligatoire</span></label>
-      <input type="text" id="lastname" name="lastname" v-model="lastnameValue" :class="{ invalid: lastnameValue.length < 1 }" />
+      <label for="lastname">Votre NOM*<span :class="{ invalidMessage: lastnameValue.length < 1 && submitOnce == true }"> - Ce champs est obligatoire</span></label>
+      <input type="text" id="lastname" name="lastname" v-model="lastnameValue" :class="{ invalid: lastnameValue.length < 1  && submitOnce == true }" />
     </div>
 
     <div class="formItem demiItem">
-      <label for="firstname">Votre PRÉNOM *<span :class="{ invalidMessage: firstnameValue.length < 1 }"> - Ce champs est obligatoire</span></label>
-      <input type="text" id="firstname" name="firstname" v-model="firstnameValue" :class="{ invalid: firstnameValue.length < 1 }" />
+      <label for="firstname">Votre PRÉNOM *<span :class="{ invalidMessage: firstnameValue.length < 1  && submitOnce == true }"> - Ce champs est obligatoire</span></label>
+      <input type="text" id="firstname" name="firstname" v-model="firstnameValue" :class="{ invalid: firstnameValue.length < 1  && submitOnce == true }" />
     </div>
 
     <div class="formItem">
-      <label for="email">Votre EMAIL *<span :class="{ invalidMessage: emailValue.length < 1 }"> - Ce champs est obligatoire</span></label>
-      <input type="email" id="email" name="email" v-model="emailValue" :class="{ invalid: emailValue.length < 1 }" />
+      <label for="email">Votre EMAIL *<span :class="{ invalidMessage: emailValue.length < 1  && submitOnce == true }"> - Ce champs est obligatoire</span></label>
+      <input type="email" id="email" name="email" v-model="emailValue" :class="{ invalid: emailValue.length < 1  && submitOnce == true }" />
     </div>
 
     <div class="formItem">
-      <label for="object">SUJET *<span :class="{ invalidMessage: objectValue.length < 1 }"> - Ce champs est obligatoire</span></label>
-      <input type="text" id="object" name="object" v-model="objectValue" :class="{ invalid: objectValue.length < 1 }" />
+      <label for="object">SUJET *<span :class="{ invalidMessage: objectValue.length < 1  && submitOnce == true }"> - Ce champs est obligatoire</span></label>
+      <input type="text" id="object" name="object" v-model="objectValue" :class="{ invalid: objectValue.length < 1  && submitOnce == true }" />
     </div>
 
     <div class="formItem">
-      <label for="message">MESSAGE *<span :class="{ invalidMessage: messageValue.length < 1 }"> - Ce champs est obligatoire</span></label>
-      <textarea id="message" name="message" v-on:keyup="autoHeightTextArea" v-model="messageValue" :class="{ invalid: messageValue.length < 1 }" />
+      <label for="message">MESSAGE *<span :class="{ invalidMessage: messageValue.length < 1  && submitOnce == true }"> - Ce champs est obligatoire</span></label>
+      <textarea id="message" name="message" v-on:keyup="autoHeightTextArea" v-model="messageValue" :class="{ invalid: messageValue.length < 1  && submitOnce == true }" />
     </div>
 
-    <button type="submit">
+    <button type="submit" v-on:click="submitOnce=true">
       <ContactButton />
     </button>
   </form>
@@ -108,7 +108,7 @@ form {
   margin: 5px 0;
 }
 .formItem.demiItem {
-  width: 49%;
+  width: 100%;
 }
 
 /* GLOBAL DESIGN */
@@ -135,8 +135,10 @@ button[type="submit"] {
   width: 100%;
 
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   background: none;
+
+  cursor: pointer;
 }
 
 /* FOCUS DESIGN */
@@ -160,4 +162,17 @@ span.invalidMessage {
   font-weight: 700;
   display: inline;
 }
+
+
+@media (min-width: 1024px) {
+
+  .formItem.demiItem {
+    width: 49%;
+  }
+  button[type="submit"] {
+    justify-content: flex-end;
+  }
+
+}
+
 </style>

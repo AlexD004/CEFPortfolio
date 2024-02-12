@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div id="identityCTAContact">
-                <ContactButton />
+                <a href="#contact" v-on:click="toggleResponsiveMenu"><ContactButton /></a>
                 <span class="minify">En plus, le devis est gratuit !</span>
             </div>
         </div>

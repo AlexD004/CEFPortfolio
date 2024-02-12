@@ -4,11 +4,10 @@
 
 <template>
 
-    <a href="#contact" v-on:click="toggleResponsiveMenu">
+    
         <div class="contactButton">
             Waouh, faisons connaissance !
         </div>
-    </a>
 
 </template>
 
@@ -26,7 +25,6 @@
         padding: 10px;
         max-height: 30px;
         max-width:350px;
-        margin: 0 auto;
 
         display: flex;
         justify-content: center;
@@ -34,11 +32,7 @@
         text-transform: uppercase;
 
         transition:.3s;
-    }
-
-    a{
-        text-decoration: none;
-    }
+    }  
 
     .contactButton:hover{
         box-shadow: 3px 3px 0 var(--c-dark-blue);

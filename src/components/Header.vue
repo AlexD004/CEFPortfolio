@@ -37,11 +37,11 @@
             <ul>
                 <li><a href="#services" v-on:click="removeResponsiveMenu">Services</a></li>
                 <li><a href="#portfolio" v-on:click="removeResponsiveMenu">Créations</a></li>
-                <li class="onlyResponsive" v-on:click="removeResponsiveMenu"><ContactButton /></li>
+                <li class="onlyResponsive" v-on:click="removeResponsiveMenu"><a href="#contact" v-on:click="removeResponsiveMenu"><ContactButton /></a></li>
             </ul>
         </nav>
         
-        <span class="onlyDesktop"><ContactButton /></span>
+        <span class="onlyDesktop"><a href="#contact" v-on:click="removeResponsiveMenu"><ContactButton /></a></span>
     </div>
 
   </header>
