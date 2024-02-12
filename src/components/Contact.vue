@@ -39,6 +39,7 @@ const submitOnce = ref(false);
 <template>
   <div class="wrapper">
     <h2 class="yellowUnderline">Titre "Contact"</h2>
+    <p class="sousTitre">bla bla bla</p>
   </div>
 
   <form v-on:submit.prevent>
@@ -83,7 +84,7 @@ const submitOnce = ref(false);
 
 /* LAYOUT */
 .wrapper {
-  padding: 50px 0;
+  padding: 50px 0 0;
   position: relative;
   z-index: 10;
 
