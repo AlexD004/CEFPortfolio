@@ -20,7 +20,7 @@
         }
     }
 
-
+ 
 </script>
 
 <template>
@@ -37,11 +37,11 @@
             <ul>
                 <li><a href="#services" v-on:click="removeResponsiveMenu">Services</a></li>
                 <li><a href="#portfolio" v-on:click="removeResponsiveMenu">Créations</a></li>
-                <li class="onlyResponsive" v-on:click="removeResponsiveMenu"><ContactButton /></li>
+                <li class="onlyResponsive" v-on:click="removeResponsiveMenu"><a href="#contact" v-on:click="removeResponsiveMenu"><ContactButton /></a></li>
             </ul>
         </nav>
         
-        <span class="onlyDesktop"><ContactButton /></span>
+        <span class="onlyDesktop"><a href="#contact" v-on:click="removeResponsiveMenu"><ContactButton /></a></span>
     </div>
 
   </header>
@@ -80,7 +80,7 @@ header:before{
   left:50%;
   transform: translate(-50%,-30%);
 
-  width: 50%;
+  width: 60%;
   height: 10px;
 
   background: #202020;
@@ -104,15 +104,29 @@ ul{
 }
 li{
     margin: 0 25px;
+    position: relative;
 }
 li a{
     font-weight: 500;
     text-decoration: none;
     color: var(--c-text-dark);
-    border-bottom:0 solid var(--c-pink);
 }
-li a:hover{
-    border-bottom: 2px solid var(--c-pink);
+
+li a::before{
+    content:"";
+    position:absolute;
+    bottom: -2px;
+
+    width: 100%;
+    height: 2px;
+    border-radius: 5px;
+
+    background: var(--c-pink);
+    transform: scaleX(0);
+    transition: .4s ease;
+}
+li a:hover::before{
+    transform: scaleX(1);
 }
 
 /* -- STYLING RESPONSIVE -- */

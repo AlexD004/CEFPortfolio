@@ -29,6 +29,7 @@ h4{
 }
 
 /* Custom styles */
+a{text-decoration: none;}
 .yellowUnderline{
   display: inline;
   text-decoration: underline solid 4px var(--c-yellow);
