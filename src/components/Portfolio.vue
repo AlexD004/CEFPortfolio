@@ -1,6 +1,7 @@
 <script setup>
 
-import { ref } from 'vue';
+    import ContactButton from '@/components/contactButton.vue';
+    import { ref } from 'vue';
 
 
 </script>
@@ -10,13 +11,16 @@ export default {
 
   data() {
     return { 
-        openModal: false,
-        workTitle: "hey",
+        modalIsOpen: false,
+        workTitle: "",
+        workContext: "",
+        workDescription: "",
+        workLinkText: "",
 
         work1: {
             title: 'Graphoreme',
             context: 'Portfolio freelance',
-            langages: [
+            outils: [
                 'html',
                 'css',
                 'js',
@@ -26,12 +30,27 @@ export default {
             linkText: 'Visiter le site',
             linkURL: 'https://graphoreme.com',
 
-            img01: 'url'
+            featuredImage: '../assets/graphoreme.png'
         },
          work2: {
             title: 'Élodie Lemoine Conseil',
             context: 'Site vitrine',
-            langages: [
+            outils: [
+                'html',
+                'css',
+                'js',
+                'php'
+            ],
+            description: 'bla bla',
+            linkText: 'Visiter le site (intégration par un tiers)',
+            linkURL: 'https://www.elodielemoineconseil.com/',
+
+            featuredImage: '../assets/elc.png'
+        },
+         work3: {
+            title: 'AssurEuro',
+            context: 'Landing Page',
+            outils: [
                 'html',
                 'css',
                 'js',
@@ -39,24 +58,60 @@ export default {
             ],
             description: 'bla bla',
             linkText: 'Visiter le site',
-            linkURL: 'https://graphoreme.com',
+            linkURL: 'https://www.assureuro.offres-selectionnees.fr/',
 
-            img01: 'url'
+            featuredImage: '../assets/assureuro.png'
+        },
+         work4: {
+            title: 'La Socketterie',
+            context: 'Cahier des charges',
+            outils: [
+                'Indesign',
+                'Illustrator',
+                'Copywritting'
+            ],
+            description: 'bla bla',
+            linkText: 'Voir le pdf',
+            linkURL: '#',
+
+            featuredImage: '../assets/cahierDesCharges.png'
+        },
+         work5: {
+            title: 'Energie Travaux France',
+            context: 'Landing Page',
+            outils: [
+                'html',
+                'css',
+                'js',
+                'php'
+            ],
+            description: 'bla bla',
+            linkText: 'Visiter le site',
+            linkURL: 'https://www.energie-travaux-france.fr/',
+
+            featuredImage: '../assets/etf.png'
         }
     }
   },
 
   methods: {
-    toggleModal: function(e) {
-        this.openModal = !this.openModal;
+    openModal: function(e) {
+        this.modalIsOpen = true;
 
         this.workTitle = e.title;
         this.workContext = e.context;
+        this.workOutils = e.outils;
+        this.workDescription = e.description;
+        this.workLinkText = e.linkText;
+        this.workLinkURL = e.linkURL;
 
+    },
+    closeModal: function() {
+        this.modalIsOpen = false;
     },
     display : function(){
         console.log('ok')
-        this.openModal = true;
+        this.modalIsOpen = true;
     }
 
     
@@ -75,51 +130,51 @@ export default {
         <p class="sousTitre">Bla bla bla</p>
 
         <div id="portfolioGallery">
-            <div id="featuredWork" class="work" v-on:click="toggleModal(work1);">
+            <div id="featuredWork" class="work" v-on:click="openModal(work1);">
                 <div class="workInfos">
-                    <h3>Graphoreme</h3>
-                    <p class="contextWork">Portfolio freelance</p>
-                    <p>Blablabla</p>
+                    <h3>{{ work1.title }}</h3>
+                    <p class="contextWork">{{ work1.context }}</p>
+                    <p>{{ work1.description }}</p>
                 </div>
                 <div class="workImage">
                     <img src="../assets/graphoreme.png" alt="Capture d'écran de la page d'accueil du site graphoreme.com" />
                 </div>
             </div>
 
-            <div class="work" v-on:click="toggleModal(work2)">
+            <div class="work" v-on:click="openModal(work2)">
                 <div class="workInfos">
-                    <h3>Élodie Lemoine Conseil</h3>
-                    <p class="contextWork">Site vitrine</p>
+                    <h3>{{ work2.title }}</h3>
+                    <p class="contextWork">{{ work2.context }}</p>
                 </div>
                 <div class="workImage">
                     <img src="../assets/elc.png" alt="Capture d'écran de la page d'accueil du site elodielemoineconseil.com" />
                 </div>
             </div>
 
-            <div class="work" v-on:click="toggleModal">
+            <div class="work" v-on:click="openModal(work3)">
                 <div class="workInfos">
-                    <h3>Assur'Euro</h3>
-                    <p class="contextWork">Landing Page</p>
+                    <h3>{{ work3.title }}</h3>
+                    <p class="contextWork">{{ work3.context }}</p>
                 </div>
                 <div class="workImage">
                     <img src="../assets/assureuro.png" alt="Capture d'écran de la landing page du site assureuro.offres-selectionnees.fr" />
                 </div>
             </div>
 
-            <div class="work" v-on:click="toggleModal">
+            <div class="work" v-on:click="openModal(work4)">
                 <div class="workInfos">
-                    <h3>La Socketterie</h3>
-                    <p class="contextWork">Cahier des charges</p>
+                    <h3>{{ work4.title }}</h3>
+                    <p class="contextWork">{{ work4.context }}</p>
                 </div>
                 <div class="workImage">
                     <img src="../assets/cahierDesCharges.png" alt="Charte graphique de la socketterie, page extraite du cahier des charges" />
                 </div>
             </div>
 
-            <div class="work" v-on:click="toggleModal">
+            <div class="work" v-on:click="openModal(work5)">
                 <div class="workInfos">
-                    <h3>Energie Travaux France</h3>
-                    <p class="contextWork">Landing Page</p>
+                    <h3>{{ work5.title }}</h3>
+                    <p class="contextWork">{{ work5.context }}</p>
                 </div>
                 <div class="workImage">
                     <img src="../assets/etf.png" alt="Capture d'écran de la landing page du site energietravauxfrance.fr" />
@@ -129,10 +184,23 @@ export default {
 
     </div>
 
-    <div id="modalBase" :class="{ open: openModal }" >
+    <div id="modalBase" :class="{ open: modalIsOpen }">
         <div id="modal">
-            <img id="closeModal" src="../assets/close.svg" alt="Pictogramme de fermeture du modal"  v-on:click="toggleModal" />
-            {{ workTitle }} {{ workContext }}
+            <img id="closeModal" src="../assets/close.svg" alt="Pictogramme de fermeture du modal"  v-on:click="closeModal" />
+            <div id="modalContent">
+
+                <div id="carrousel">
+                </div>
+
+                <div id="modalInfos">
+                    <h3>{{ workTitle }}</h3>
+                    <p class="contextWork">{{ workContext }}</p>
+                    <p class="descriptionWork">{{ workDescription }}</p>
+                    <p class="linkWork">{{ workLinkText }}</p>
+                    <a href="#contact" v-on:click="closeModal"><ContactButton /></a>
+                </div>
+                
+            </div>
         </div>
     </div>
 

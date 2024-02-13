@@ -50,6 +50,7 @@
 
 <style scoped>
 
+
 /* HEADER STYLES */
 header{
     position: fixed;
@@ -80,7 +81,7 @@ header:before{
   left:50%;
   transform: translate(-50%,-30%);
 
-  width: 60%;
+  width: 45%;
   height: 10px;
 
   background: #202020;

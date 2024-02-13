@@ -1,4 +1,7 @@
 <script setup>
+
+  import IconesReseauxSociaux from '@/components/reseauxSociaux.vue';
+
 </script>
 
 <template>
@@ -21,6 +24,7 @@
             </div>
             <div id="footerSociaux">
                 <h3>Réseaux</h3>
+                <IconesReseauxSociaux />
             </div>
         </div>
         <div id="copyright">Alexandre Dupré - Tous droits réservés - Dernière mise à jour le XX/XX/2024</div>
@@ -69,6 +73,9 @@ li a{
 }
 li a:hover{
     border-bottom: 2px solid var(--c-pink);
+}
+ul#reseauxSociaux{
+    flex-direction: row;
 }
 
 
