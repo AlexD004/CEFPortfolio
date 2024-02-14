@@ -26,7 +26,7 @@ ul#reseauxSociaux li img{
 ul#reseauxSociaux li:hover img{
     filter: drop-shadow(4px 3px 0 var(--c-pink));
     transform: scale(110%);
-    transition:.3s;
+    transition:.3s; 
 }
 
 

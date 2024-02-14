@@ -16,8 +16,10 @@ export default {
         workContext: "",
         workDescription: "",
         workLinkText: "",
+        featuredImage: "",
 
-        work1: {
+        works: [{
+            id: '0',
             title: 'Graphoreme',
             context: 'Portfolio freelance',
             outils: [
@@ -30,9 +32,10 @@ export default {
             linkText: 'Visiter le site',
             linkURL: 'https://graphoreme.com',
 
-            featuredImage: '../assets/graphoreme.png'
+            featuredImage: '/src/assets/graphoreme.png'
         },
-         work2: {
+        {
+            id: '1',
             title: 'Élodie Lemoine Conseil',
             context: 'Site vitrine',
             outils: [
@@ -45,9 +48,10 @@ export default {
             linkText: 'Visiter le site (intégration par un tiers)',
             linkURL: 'https://www.elodielemoineconseil.com/',
 
-            featuredImage: '../assets/elc.png'
+            featuredImage: '/src/assets/elc.png'
         },
-         work3: {
+        {
+            id: '2',
             title: 'AssurEuro',
             context: 'Landing Page',
             outils: [
@@ -60,9 +64,10 @@ export default {
             linkText: 'Visiter le site',
             linkURL: 'https://www.assureuro.offres-selectionnees.fr/',
 
-            featuredImage: '../assets/assureuro.png'
+            featuredImage: '/src/assets/assureuro.png'
         },
-         work4: {
+        {
+            id: '3',
             title: 'La Socketterie',
             context: 'Cahier des charges',
             outils: [
@@ -74,9 +79,10 @@ export default {
             linkText: 'Voir le pdf',
             linkURL: '#',
 
-            featuredImage: '../assets/cahierDesCharges.png'
+            featuredImage: '/src/assets/cahierDesCharges.png'
         },
-         work5: {
+        {
+            id: '4',
             title: 'Energie Travaux France',
             context: 'Landing Page',
             outils: [
@@ -89,8 +95,8 @@ export default {
             linkText: 'Visiter le site',
             linkURL: 'https://www.energie-travaux-france.fr/',
 
-            featuredImage: '../assets/etf.png'
-        }
+            featuredImage: '/src/assets/etf.png'
+        }]
     }
   },
 
@@ -98,20 +104,16 @@ export default {
     openModal: function(e) {
         this.modalIsOpen = true;
 
-        this.workTitle = e.title;
-        this.workContext = e.context;
-        this.workOutils = e.outils;
-        this.workDescription = e.description;
-        this.workLinkText = e.linkText;
-        this.workLinkURL = e.linkURL;
+        this.workTitle = this.$data.works[e].title;
+        this.workContext =this.$data.works[e].context;
+        this.workOutils = this.$data.works[e].outils;
+        this.workDescription = this.$data.works[e].description;
+        this.workLinkText = this.$data.works[e].linkText;
+        this.workLinkURL = this.$data.works[e].linkURL;
 
     },
     closeModal: function() {
         this.modalIsOpen = false;
-    },
-    display : function(){
-        console.log('ok')
-        this.modalIsOpen = true;
     }
 
     
@@ -130,6 +132,22 @@ export default {
         <p class="sousTitre">Bla bla bla</p>
 
         <div id="portfolioGallery">
+            <div 
+                v-for="({id, title, context, featuredImage}, index) in works"
+                class="work"
+                v-on:click="openModal( id );"
+            >
+                <div class="workInfos">
+                    <h3>{{ title }}</h3>
+                    <p class="contextWork">{{ context }}</p>
+                </div>
+                <div class="workImage">
+                    <img :src="`${ featuredImage }`" alt="Capture d'écran de la page d'accueil du site graphoreme.com" />
+                </div>
+            </div>
+        </div>
+
+       <!-- <div id="portfolioGallery">
             <div id="featuredWork" class="work" v-on:click="openModal(work1);">
                 <div class="workInfos">
                     <h3>{{ work1.title }}</h3>
@@ -137,7 +155,7 @@ export default {
                     <p>{{ work1.description }}</p>
                 </div>
                 <div class="workImage">
-                    <img src="../assets/graphoreme.png" alt="Capture d'écran de la page d'accueil du site graphoreme.com" />
+                    <img :src="`${ work1.featuredImage }`" alt="Capture d'écran de la page d'accueil du site graphoreme.com" />
                 </div>
             </div>
 
@@ -180,7 +198,7 @@ export default {
                     <img src="../assets/etf.png" alt="Capture d'écran de la landing page du site energietravauxfrance.fr" />
                 </div>
             </div>
-        </div>
+        </div>-->
 
     </div>
 
@@ -221,12 +239,6 @@ p.contextWork{
 }
 
 /* MODAL */
-
-#test{
-    width: 75px;
-    height: 75px;
-    background: var(--c-pink);
-}
 
 #modalBase.open{
     display: flex;
@@ -283,12 +295,12 @@ p.contextWork{
 
 
 
-#featuredWork{
+.work:first-child{
     display: flex;
     flex-direction: column-reverse;
     width: 90%;
 }
-#featuredWork .workInfos{
+.work:first-child .workInfos{
     width: 100%;
     height: 100%;
     padding: 10px;
@@ -297,7 +309,7 @@ p.contextWork{
     text-align: left;
 
 }
-#featuredWork .workImage{
+.work:first-child .workImage{
     width: 100%;
     height: 300px;
 
@@ -307,7 +319,7 @@ p.contextWork{
     border-radius: 15px 15px 0 0;
     overflow: hidden;
 }
-#featuredWork .workImage img{
+.work:first-child .workImage img{
     width: 100%;
     object-fit: contain;
 }
@@ -357,12 +369,12 @@ p.contextWork{
 #portfolioGallery{
     flex-direction: row;
 }
-#featuredWork{
+.work:first-child{
     width: 100%;
     flex-direction: row;
     margin-bottom: 20px;
 }
-#featuredWork .workInfos{
+.work:first-child .workInfos{
     width: 25%;
     height: 100%;
     padding: 20px;
@@ -371,7 +383,7 @@ p.contextWork{
     text-align: left;
 
 }
-#featuredWork .workImage{
+.work:first-child .workImage{
     width: 75%;
     height: 300px;
 

@@ -93,6 +93,7 @@
     font-weight: 700;
 }
 
+
 @media (min-width: 1024px) {
 
     .identity{
