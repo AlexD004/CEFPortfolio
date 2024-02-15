@@ -5,8 +5,8 @@
 <template>
 
 <ul id="reseauxSociaux">
-    <a href="https://www.linkedin.com/in/alexdupre-graphoreme/" target="_blank"><li><img src="../assets/icon-linkedin.svg" alt="Icone de LinkedIn" /></li></a>
-    <a href="https://github.com/AlexD004" target="_blank"><li><img src="../assets/icon-github.svg" alt="Icone de GitHub" /></li></a> 
+    <a href="https://www.linkedin.com/in/alexdupre-graphoreme/" target="_blank"><li><img src="../assets/icon/icon-linkedin.svg" alt="Icone de LinkedIn" /></li></a>
+    <a href="https://github.com/AlexD004" target="_blank"><li><img src="../assets/icon/icon-github.svg" alt="Icone de GitHub" /></li></a> 
 </ul>
 
 </template>

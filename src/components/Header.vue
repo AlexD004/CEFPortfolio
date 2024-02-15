@@ -29,11 +29,18 @@
 
     <div class="wrapper">
 
-        <a href="/"><img id="logo" src="../assets/logo-alexEI.svg" alt="Logo d'Alexandre Dupré EI, un carré bleu dans lequel est écrit Alexandre en rose et jaune" /></a>
+        <!-- Site logo -->
+        <a href="/"><img id="logo" src="../assets/img/logo-alexEI.svg" alt="Logo d'Alexandre Dupré EI, un carré bleu dans lequel est écrit Alexandre en rose et jaune" /></a>
       
-        <img id="menuBurger" src="../assets/menuBurger.svg" alt="Pictogramme d'ouverture du menu" v-on:click="toggleResponsiveMenu" />
+        <!-- Smartphone : icon to open navigation -->
+        <img id="menuBurger" src="../assets/icon/menuBurger.svg" alt="Pictogramme d'ouverture du menu" v-on:click="toggleResponsiveMenu" />
+
         <nav>
-            <img id="close" src="../assets/close.svg" alt="Pictogramme de fermeture du menu" v-on:click="toggleResponsiveMenu" />
+
+            <!-- Smartphone : icon to close navigation -->
+            <img id="close" src="../assets/icon/close.svg" alt="Pictogramme de fermeture du menu" v-on:click="toggleResponsiveMenu" />
+
+            <!-- Navigation -->
             <ul>
                 <li><a href="#services" v-on:click="removeResponsiveMenu">Services</a></li>
                 <li><a href="#portfolio" v-on:click="removeResponsiveMenu">Créations</a></li>
@@ -42,6 +49,7 @@
         </nav>
         
         <span class="onlyDesktop"><a href="#contact" v-on:click="removeResponsiveMenu"><ContactButton /></a></span>
+
     </div>
 
   </header>

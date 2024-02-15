@@ -1,7 +1,7 @@
 <script setup>
 
     import ContactButton from '@/components/contactButton.vue';
-    import { ref } from 'vue';
+    import {  ref } from 'vue';
 
 
 </script>
@@ -11,6 +11,8 @@ export default {
 
   data() {
     return { 
+
+        /* Variables declarations */
         modalIsOpen: false,
         workTitle: "",
         workContext: "",
@@ -18,6 +20,7 @@ export default {
         workLinkText: "",
         featuredImage: "",
 
+        /* Works List */
         works: [{
             id: '0',
             title: 'Graphoreme',
@@ -32,7 +35,10 @@ export default {
             linkText: 'Visiter le site',
             linkURL: 'https://graphoreme.com',
 
-            featuredImage: '/src/assets/graphoreme.png'
+            featuredImage: {
+                url: "/src/assets/img/graphoreme.png",
+                alt: "Capture d'écran de la page d'accueil du site graphoreme.com"
+            }
         },
         {
             id: '1',
@@ -48,7 +54,10 @@ export default {
             linkText: 'Visiter le site (intégration par un tiers)',
             linkURL: 'https://www.elodielemoineconseil.com/',
 
-            featuredImage: '/src/assets/elc.png'
+            featuredImage: {
+                url: "/src/assets/img/elc.png",
+                alt: "Capture d'écran de la page d'accueil du site elodielemoineconseil.com"
+            }
         },
         {
             id: '2',
@@ -64,7 +73,10 @@ export default {
             linkText: 'Visiter le site',
             linkURL: 'https://www.assureuro.offres-selectionnees.fr/',
 
-            featuredImage: '/src/assets/assureuro.png'
+            featuredImage: {
+                url: "/src/assets/img/assureuro.png",
+                alt: "Capture d'écran de la page d'accueil du site assureuro.offres-selectionnees.fr"
+            }
         },
         {
             id: '3',
@@ -79,7 +91,10 @@ export default {
             linkText: 'Voir le pdf',
             linkURL: '#',
 
-            featuredImage: '/src/assets/cahierDesCharges.png'
+            featuredImage: {
+                url: "/src/assets/img/cahierDesCharges.png",
+                alt: "Charte graphique, extraite du cahier des charges du site internet de la Socketterie"
+            }
         },
         {
             id: '4',
@@ -95,7 +110,10 @@ export default {
             linkText: 'Visiter le site',
             linkURL: 'https://www.energie-travaux-france.fr/',
 
-            featuredImage: '/src/assets/etf.png'
+            featuredImage: {
+                url: "/src/assets/img/etf.png",
+                alt: "Capture d'écran de la page d'accueil du site energie-travaux-france.fr"
+            }
         }]
     }
   },
@@ -131,16 +149,14 @@ const centerModal = () => {
     
     const modal = document.getElementById('modal');
 
-    const screenHeight = screen.height;
-    const modalHeight = screenHeight * 0.9;
-    const offsetHeight = (screenHeight - modalHeight) / 2;
+    let screenWidth = window.innerWidth;
+    let offsetWidth = (screenWidth - (screenWidth * .9)) / 2 ;
+    let screenHeight = window.innerHeight;
+    let offsetHeight = (screenHeight - (screenHeight * .9)) / 2 ;
 
-    const screenWidth = screen.width;
-    const modalWidth = screenWidth * 0.9;
-    const offsetWidth = (screenWidth - modalWidth) / 2;
-
-    modal.style.top = offsetHeight + 'px';
     modal.style.left = offsetWidth + 'px';
+    modal.style.top = offsetHeight + 'px';
+
 }
 
 window.onresize = centerModal;
@@ -160,24 +176,24 @@ window.onresize = centerModal;
 
             <!-- Works Template : use datas to build each work card -->
             <div 
-                v-for="({id, title, context, featuredImage}, index) in works"
+                v-for="({id, title, context, description, featuredImage}, index) in works"
                 class="work"
                 v-on:click=" openModal( id ); "
             >
                 <div class="workInfos">
                     <h3>{{ title }}</h3>
                     <p class="contextWork">{{ context }}</p>
+                    <p class="descriptionWork">{{ description }}</p>
                 </div>
                 <div class="workImage">
-                    <img :src="`${ featuredImage }`" alt="Capture d'écran de la page d'accueil du site graphoreme.com" />
+                    <img :src="`${ featuredImage.url }`" :alt="`${ featuredImage.alt }`" />
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal Template : use datas to display informations -->
-    <div id="backgroundBlur" :class="{ open: modalIsOpen }" v-on:click="closeModal">
-    </div>
+    <div id="backgroundBlur" :class="{ open: modalIsOpen }" v-on:click="closeModal">&nbsp;</div>
     <div id="modal" :class="{ open: modalIsOpen }">
 
             <img id="closeModal" src="../assets/close.svg" alt="Pictogramme de fermeture du modal"  v-on:click="closeModal" />
@@ -206,12 +222,7 @@ window.onresize = centerModal;
     padding: 50px 0;
     position: relative;
     z-index:10;
-
     text-align: center;
-}
-
-p.contextWork{
-    margin:-10px 0 20px;
 }
 
 /* MODAL */
@@ -219,7 +230,6 @@ p.contextWork{
 #backgroundBlur.open{
     display: flex;
 }
-
 #backgroundBlur{
     display: none;
     justify-content: center;
@@ -229,10 +239,8 @@ p.contextWork{
     top:0;
     bottom: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
-
     backdrop-filter: blur(10px);
 }
 #modal.open{display: block;}
@@ -242,7 +250,6 @@ p.contextWork{
     z-index: 990;
     width: 90%;
     height: 90%;
-
     background: white;
     border-radius: 20px;
     border:1px solid var(--c-dark-blue)
@@ -261,8 +268,7 @@ p.contextWork{
     transition:.3s;
 }
 
-
-/* LAYOUT */
+/* LAYOUT & Works Design */
 
 #portfolioGallery{
     display: flex;
@@ -271,9 +277,6 @@ p.contextWork{
     justify-content: space-between;
     align-items: center;
 }
-
-
-
 .work:first-child{
     display: flex;
     flex-direction: column-reverse;
@@ -283,18 +286,17 @@ p.contextWork{
     width: 100%;
     height: 100%;
     padding: 10px;
-
     border-radius: 0 0 15px 15px;
     text-align: left;
-
+}
+.work:first-child .workInfos .descriptionWork{
+    display: inline;
 }
 .work:first-child .workImage{
     width: 100%;
     height: 300px;
-
     border: 1px solid var(--c-dark-blue);
     border-bottom: none;
-
     border-radius: 15px 15px 0 0;
     overflow: hidden;
 }
@@ -303,18 +305,14 @@ p.contextWork{
     object-fit: contain;
 }
 
-
 .work{
     display: flex;
     flex-direction: column-reverse;
     width: 90%;
     height: 300px;
-
     margin: 15px 0;
-    
     filter: drop-shadow(0px 0px 0 var(--c-dark-blue));
     transition: .5s ease;
-
     cursor: pointer;
 }
 .workInfos{
@@ -323,6 +321,9 @@ p.contextWork{
     background: var(--c-yellow);
     border-radius: 0 0 15px 15px;
     text-align: left;
+}
+.workInfos .descriptionWork{
+    display: none;
 }
 .workImage{
     height: 75%;
@@ -337,7 +338,9 @@ p.contextWork{
     width: 100%;
     margin: 0 auto;
 }
-
+p.contextWork{
+    margin:-10px 0 20px;
+}
 .work:hover{
     filter: drop-shadow(4px 4px 0 var(--c-dark-blue));
     transition: .3s;
@@ -357,18 +360,14 @@ p.contextWork{
     width: 25%;
     height: 100%;
     padding: 20px;
-
     border-radius: 15px 0 0 15px;
     text-align: left;
-
 }
 .work:first-child .workImage{
     width: 75%;
     height: 300px;
-
     border: 1px solid var(--c-dark-blue);
     border-left: none;
-
     border-radius: 0 15px 15px 0;
     overflow: hidden;
 }
