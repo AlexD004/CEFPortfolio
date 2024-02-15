@@ -22,7 +22,7 @@ export default {
             id: '0',
             title: 'Graphoreme',
             context: 'Portfolio freelance',
-            outils: [
+            tools: [
                 'html',
                 'css',
                 'js',
@@ -38,7 +38,7 @@ export default {
             id: '1',
             title: 'Élodie Lemoine Conseil',
             context: 'Site vitrine',
-            outils: [
+            tools: [
                 'html',
                 'css',
                 'js',
@@ -54,7 +54,7 @@ export default {
             id: '2',
             title: 'AssurEuro',
             context: 'Landing Page',
-            outils: [
+            tools: [
                 'html',
                 'css',
                 'js',
@@ -70,7 +70,7 @@ export default {
             id: '3',
             title: 'La Socketterie',
             context: 'Cahier des charges',
-            outils: [
+            tools: [
                 'Indesign',
                 'Illustrator',
                 'Copywritting'
@@ -85,7 +85,7 @@ export default {
             id: '4',
             title: 'Energie Travaux France',
             context: 'Landing Page',
-            outils: [
+            tools: [
                 'html',
                 'css',
                 'js',
@@ -111,6 +111,8 @@ export default {
         this.workLinkText = this.$data.works[e].linkText;
         this.workLinkURL = this.$data.works[e].linkURL;
 
+        centerModal();
+
     },
     closeModal: function() {
         this.modalIsOpen = false;
@@ -121,6 +123,27 @@ export default {
 
 }
 
+/* Put 'Modal' in larger div to center it with flexbox works but I can't have an 'outside click' without click the parent...
+/* Use 'click-outside-vue3' ( a package to create outside click event ) doesn't work... I don't know why...
+/* So I center my modal with a function to set top and left values */
+
+const centerModal = () => {
+    
+    const modal = document.getElementById('modal');
+
+    const screenHeight = screen.height;
+    const modalHeight = screenHeight * 0.9;
+    const offsetHeight = (screenHeight - modalHeight) / 2;
+
+    const screenWidth = screen.width;
+    const modalWidth = screenWidth * 0.9;
+    const offsetWidth = (screenWidth - modalWidth) / 2;
+
+    modal.style.top = offsetHeight + 'px';
+    modal.style.left = offsetWidth + 'px';
+}
+
+window.onresize = centerModal;
 
 </script>
 
@@ -128,14 +151,18 @@ export default {
 <template>
     <div class="wrapper">
 
+        <!-- Section Title -->
         <h2 class="yellowUnderline">Titre "Portfolio"</h2>
         <p class="sousTitre">Bla bla bla</p>
 
+        <!-- Works Section -->
         <div id="portfolioGallery">
+
+            <!-- Works Template : use datas to build each work card -->
             <div 
                 v-for="({id, title, context, featuredImage}, index) in works"
                 class="work"
-                v-on:click="openModal( id );"
+                v-on:click=" openModal( id ); "
             >
                 <div class="workInfos">
                     <h3>{{ title }}</h3>
@@ -146,65 +173,15 @@ export default {
                 </div>
             </div>
         </div>
-
-       <!-- <div id="portfolioGallery">
-            <div id="featuredWork" class="work" v-on:click="openModal(work1);">
-                <div class="workInfos">
-                    <h3>{{ work1.title }}</h3>
-                    <p class="contextWork">{{ work1.context }}</p>
-                    <p>{{ work1.description }}</p>
-                </div>
-                <div class="workImage">
-                    <img :src="`${ work1.featuredImage }`" alt="Capture d'écran de la page d'accueil du site graphoreme.com" />
-                </div>
-            </div>
-
-            <div class="work" v-on:click="openModal(work2)">
-                <div class="workInfos">
-                    <h3>{{ work2.title }}</h3>
-                    <p class="contextWork">{{ work2.context }}</p>
-                </div>
-                <div class="workImage">
-                    <img src="../assets/elc.png" alt="Capture d'écran de la page d'accueil du site elodielemoineconseil.com" />
-                </div>
-            </div>
-
-            <div class="work" v-on:click="openModal(work3)">
-                <div class="workInfos">
-                    <h3>{{ work3.title }}</h3>
-                    <p class="contextWork">{{ work3.context }}</p>
-                </div>
-                <div class="workImage">
-                    <img src="../assets/assureuro.png" alt="Capture d'écran de la landing page du site assureuro.offres-selectionnees.fr" />
-                </div>
-            </div>
-
-            <div class="work" v-on:click="openModal(work4)">
-                <div class="workInfos">
-                    <h3>{{ work4.title }}</h3>
-                    <p class="contextWork">{{ work4.context }}</p>
-                </div>
-                <div class="workImage">
-                    <img src="../assets/cahierDesCharges.png" alt="Charte graphique de la socketterie, page extraite du cahier des charges" />
-                </div>
-            </div>
-
-            <div class="work" v-on:click="openModal(work5)">
-                <div class="workInfos">
-                    <h3>{{ work5.title }}</h3>
-                    <p class="contextWork">{{ work5.context }}</p>
-                </div>
-                <div class="workImage">
-                    <img src="../assets/etf.png" alt="Capture d'écran de la landing page du site energietravauxfrance.fr" />
-                </div>
-            </div>
-        </div>-->
-
     </div>
 
-    <div id="modalBase" :class="{ open: modalIsOpen }">
-        <div id="modal">
+    <!-- Modal Template : use datas to display informations -->
+    <div id="backgroundBlur" :class="{ open: modalIsOpen }" v-on:click="closeModal">
+    </div>
+    <div id="modal" :class="{ open: modalIsOpen }">
+
             <img id="closeModal" src="../assets/close.svg" alt="Pictogramme de fermeture du modal"  v-on:click="closeModal" />
+
             <div id="modalContent">
 
                 <div id="carrousel">
@@ -220,7 +197,6 @@ export default {
                 
             </div>
         </div>
-    </div>
 
 </template>
 
@@ -240,11 +216,11 @@ p.contextWork{
 
 /* MODAL */
 
-#modalBase.open{
+#backgroundBlur.open{
     display: flex;
 }
 
-#modalBase{
+#backgroundBlur{
     display: none;
     justify-content: center;
     align-items: center;
@@ -259,8 +235,11 @@ p.contextWork{
 
     backdrop-filter: blur(10px);
 }
+#modal.open{display: block;}
 #modal{
+    display: none;
     position: fixed;
+    z-index: 990;
     width: 90%;
     height: 90%;
 
