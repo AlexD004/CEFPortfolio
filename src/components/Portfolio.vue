@@ -16,21 +16,36 @@ export default {
         modalIsOpen: false,
         workTitle: "",
         workContext: "",
+        workTools: "",
+        tools:"",
+        html: false,
+        css: false,
+        js: false,
+        php: false,
+        indesign: false,
+        illustrator: false,
+        copywritting: false,
         workDescription: "",
         workLinkText: "",
+        workLinkURL: "",
         featuredImage: "",
+        workIMG: "",
+        workALT: "",
 
         /* Works List */
         works: [{
             id: '0',
             title: 'Graphoreme',
             context: 'Portfolio freelance',
-            tools: [
-                'html',
-                'css',
-                'js',
-                'php'
-            ],
+            tools: {
+                html: true,
+                css: true,
+                js: true,
+                php: true,
+                indesign: true,
+                illustrator: true,
+                copywritting: true
+            },
             description: 'bla bla',
             linkText: 'Visiter le site',
             linkURL: 'https://graphoreme.com',
@@ -44,12 +59,15 @@ export default {
             id: '1',
             title: 'Élodie Lemoine Conseil',
             context: 'Site vitrine',
-            tools: [
-                'html',
-                'css',
-                'js',
-                'php'
-            ],
+            tools:{
+                html: true,
+                css: true,
+                js: true,
+                php: true,
+                indesign: false,
+                illustrator: false,
+                copywritting: false
+            },
             description: 'bla bla',
             linkText: 'Visiter le site (intégration par un tiers)',
             linkURL: 'https://www.elodielemoineconseil.com/',
@@ -63,12 +81,15 @@ export default {
             id: '2',
             title: 'AssurEuro',
             context: 'Landing Page',
-            tools: [
-                'html',
-                'css',
-                'js',
-                'php'
-            ],
+            tools: {
+                html: true,
+                css: true,
+                js: true,
+                php: true,
+                indesign: false,
+                illustrator: false,
+                copywritting: false
+            },
             description: 'bla bla',
             linkText: 'Visiter le site',
             linkURL: 'https://www.assureuro.offres-selectionnees.fr/',
@@ -82,11 +103,15 @@ export default {
             id: '3',
             title: 'La Socketterie',
             context: 'Cahier des charges',
-            tools: [
-                'Indesign',
-                'Illustrator',
-                'Copywritting'
-            ],
+            tools: {
+                html: true,
+                css: true,
+                js: true,
+                php: true,
+                indesign: false,
+                illustrator: false,
+                copywritting: false
+            },
             description: 'bla bla',
             linkText: 'Voir le pdf',
             linkURL: '#',
@@ -100,12 +125,15 @@ export default {
             id: '4',
             title: 'Energie Travaux France',
             context: 'Landing Page',
-            tools: [
-                'html',
-                'css',
-                'js',
-                'php'
-            ],
+            tools: {
+                html: true,
+                css: true,
+                js: true,
+                php: true,
+                indesign: false,
+                illustrator: false,
+                copywritting: false
+            },
             description: 'bla bla',
             linkText: 'Visiter le site',
             linkURL: 'https://www.energie-travaux-france.fr/',
@@ -124,10 +152,22 @@ export default {
 
         this.workTitle = this.$data.works[e].title;
         this.workContext =this.$data.works[e].context;
-        this.workOutils = this.$data.works[e].outils;
+
+        this.workTools = this.$data.works[e].tools;
+        this.html = this.workTools.html;
+        this.css = this.workTools.css;
+        this.js = this.workTools.js;
+        this.php = this.workTools.php;
+        this.indesign = this.workTools.indesign;
+        this.illustrator = this.workTools.illustrator;
+        this.copywritting = this.workTools.copywritting;
+
         this.workDescription = this.$data.works[e].description;
         this.workLinkText = this.$data.works[e].linkText;
         this.workLinkURL = this.$data.works[e].linkURL;
+
+        this.workIMG = this.$data.works[e].featuredImage.url;
+        this.workAlt = this.$data.works[e].featuredImage.alt;
 
         centerModal();
 
@@ -196,19 +236,31 @@ window.onresize = centerModal;
     <div id="backgroundBlur" :class="{ open: modalIsOpen }" v-on:click="closeModal">&nbsp;</div>
     <div id="modal" :class="{ open: modalIsOpen }">
 
-            <img id="closeModal" src="../assets/close.svg" alt="Pictogramme de fermeture du modal"  v-on:click="closeModal" />
+            <img id="closeModal" src="../assets/icon/close.svg" alt="Pictogramme de fermeture du modal"  v-on:click="closeModal" />
 
             <div id="modalContent">
 
                 <div id="carrousel">
+                    <img :src="`${ workIMG }`" :alt="`${ workALT }`" />
                 </div>
 
                 <div id="modalInfos">
                     <h3>{{ workTitle }}</h3>
                     <p class="contextWork">{{ workContext }}</p>
+
+                    <div id="tools" >
+                        <img src="../assets/icon/icon-html-bleu.svg" alt="Icone HTML" :class="{ tool: html }" />
+                        <img src="../assets/icon/icon-css-bleu.svg" alt="Icone CSS" :class="{ tool: css }" />
+                        <img src="../assets/icon/icon-js-bleu.svg" alt="Icone Javascript" :class="{ tool: js }" />
+                        <img src="../assets/icon/icon-php-bleu.svg" alt="Icone PHP" :class="{ tool: php }" />
+                        <p :class="{ tool: indesign }" >Indesign</p>
+                        <p :class="{ tool: illustrator }" >Illustrator</p>
+                        <p :class="{ tool: copywritting }" >Copywriting</p>
+                    </div>
+
                     <p class="descriptionWork">{{ workDescription }}</p>
-                    <p class="linkWork">{{ workLinkText }}</p>
-                    <a href="#contact" v-on:click="closeModal"><ContactButton /></a>
+                    <p class="linkWork"><a :href="`${ workLinkURL }`">{{ workLinkText }}</a></p>
+                    <p class="contactWork" ><a href="#contact" v-on:click="closeModal"><ContactButton /></a></p>
                 </div>
                 
             </div>
@@ -225,7 +277,7 @@ window.onresize = centerModal;
     text-align: center;
 }
 
-/* MODAL */
+/* DISPLAY MODAL */
 
 #backgroundBlur.open{
     display: flex;
@@ -262,10 +314,78 @@ window.onresize = centerModal;
     cursor: pointer;
     transform: scale(100%);
     transition:.3s;
+    filter: drop-shadow(0 0 7px #fff);
 }
 #closeModal:hover{
     transform: scale(125%);
     transition:.3s;
+}
+
+/* MODAL CONTENT */
+
+#modalContent{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+#carrousel {
+    display: flex;
+    justify-content: center;
+    width:100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+}
+#carrousel img{
+    object-fit:contain;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 20px 0 0;
+}
+#modalInfos {
+    width:100%;
+    height: 100%;
+    border-radius: 0 20px 20px 0;
+    padding: 50px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+#tools{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--c-dark-blue);
+    border-bottom: 1px solid var(--c-dark-blue);
+    padding: 5px 0;
+}
+.descriptionWork{
+    margin: 40px 0;
+}
+p.linkWork{
+    margin-bottom: 40px;
+}
+p.linkWork a{
+    font-weight: 700;
+    color: var(--c-dark-blue);
+}
+p.linkWork a:hover{
+    color: var(--c-pink);
+}
+p.contactWork{
+    align-self: flex-end;
+}
+
+/* Display tools or not */
+#tools img,
+#tools p{
+    display: none;
+    margin:5px 25px 5px 0;
+}
+#tools img.tool,
+#tools p.tool{
+    display: block;
+    font-weight: 700;
 }
 
 /* LAYOUT & Works Design */
@@ -373,6 +493,18 @@ p.contextWork{
 }
 .work{
     width: 24%;
+}
+
+#modalContent{
+    flex-direction: row;
+}
+#carrousel,
+#modalInfos {
+    width:50%;
+}
+#carrousel,
+#carrousel img {
+    border-radius: 20px 0 0 20px;
 }
 
 }
