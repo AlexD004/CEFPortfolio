@@ -45,7 +45,7 @@
   position: relative;
 }
 
-/* Using :before to put a pattern above color */
+/* Using ':before' to put a pattern above color */
 #presentation:before,
 #contact:before{
   content:'';

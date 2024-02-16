@@ -78,7 +78,7 @@
     height: auto;
 }
 
-/* Using Wrap as reference for absolute position of social medias icons */
+/* Using a wrap as reference for absolute position of social medias icons */
 .identity #identityPhoto #identityPhotoWrap{
     position: relative;
     max-width: 300px;

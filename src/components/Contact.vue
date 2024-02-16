@@ -9,10 +9,11 @@ import { ref } from 'vue';
 /* ------- Functions for AUTO HEIGHT TEXTAREA ---- */
 /*-------------------------------------------------*/
 
-//  Calculate Textarea Height Value
+/*  Calculate Textarea Height Value */
 function calcHeight(value) {
+
     let numberOfLineBreaks = (value.match(/\n/g) || []).length;
-    // min-height + lines x line-height + padding + border
+    /* min-height + lines x line-height + padding + border */
     let newHeight = 20 + numberOfLineBreaks * 20 + 12 + 2;
     return newHeight;
 } 
@@ -24,15 +25,16 @@ function autoHeightTextArea(){
     messageBox.style.height = heightToSet + 'px';
 }
 
-// Setup variables to check if form is not empty
+/* Set variables to check if form is not empty */
 const lastnameValue = ref("");
 const firstnameValue = ref("");
 const emailValue = ref("");
 const objectValue = ref("");
 const messageValue = ref("");
 
+/* Set a variable to know if user already clicked on submit button */
 const submitOnce = ref(false);
-
+/* Set a content for all error message */
 const errMessage = ' - Ce champs est obligatoire';
 
 
@@ -45,31 +47,38 @@ const errMessage = ' - Ce champs est obligatoire';
   </div>
 
   <form v-on:submit.prevent>
+
+    <!-- LASTNAME : half column on desktop -->
     <div class="formItem demiItem">
       <label for="lastname">Votre NOM*<span :class="{ invalidMessage: lastnameValue.length < 1 && submitOnce == true }">{{ errMessage }}</span></label>
       <input type="text" id="lastname" name="lastname" v-model="lastnameValue" :class="{ invalid: lastnameValue.length < 1  && submitOnce == true }" />
     </div>
 
+    <!-- FIRSTNAME : half column on desktop -->
     <div class="formItem demiItem">
       <label for="firstname">Votre PRÉNOM *<span :class="{ invalidMessage: firstnameValue.length < 1  && submitOnce == true }">{{ errMessage }}</span></label>
       <input type="text" id="firstname" name="firstname" v-model="firstnameValue" :class="{ invalid: firstnameValue.length < 1  && submitOnce == true }" />
     </div>
 
+    <!-- EMAIL -->
     <div class="formItem">
       <label for="email">Votre EMAIL *<span :class="{ invalidMessage: emailValue.length < 1  && submitOnce == true }">{{ errMessage }}</span></label>
       <input type="email" id="email" name="email" v-model="emailValue" :class="{ invalid: emailValue.length < 1  && submitOnce == true }" />
     </div>
 
+    <!-- OBJECT -->
     <div class="formItem">
       <label for="object">SUJET *<span :class="{ invalidMessage: objectValue.length < 1  && submitOnce == true }">{{ errMessage }}e</span></label>
       <input type="text" id="object" name="object" v-model="objectValue" :class="{ invalid: objectValue.length < 1  && submitOnce == true }" />
     </div>
 
+    <!-- MESSAGE -->
     <div class="formItem">
       <label for="message">MESSAGE *<span :class="{ invalidMessage: messageValue.length < 1  && submitOnce == true }">{{ errMessage }}</span></label>
       <textarea id="message" name="message" v-on:keyup="autoHeightTextArea" v-model="messageValue" :class="{ invalid: messageValue.length < 1  && submitOnce == true }" />
     </div>
 
+   <!-- SUBMIT -->
     <button type="submit" v-on:click="submitOnce=true">
       <ContactButton />
     </button>
@@ -77,12 +86,6 @@ const errMessage = ' - Ce champs est obligatoire';
 </template>
 
 <style scoped>
-.bind {
-  color: green;
-}
-.bind.activeBind {
-  color: blue;
-}
 
 /* LAYOUT */
 .wrapper {
