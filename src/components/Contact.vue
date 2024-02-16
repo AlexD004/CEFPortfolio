@@ -33,37 +33,40 @@ const messageValue = ref("");
 
 const submitOnce = ref(false);
 
+const errMessage = ' - Ce champs est obligatoire';
+
 
 </script>
 
 <template>
   <div class="wrapper">
     <h2 class="yellowUnderline">Titre "Contact"</h2>
+    <p class="sousTitre">bla bla bla</p>
   </div>
 
   <form v-on:submit.prevent>
     <div class="formItem demiItem">
-      <label for="lastname">Votre NOM*<span :class="{ invalidMessage: lastnameValue.length < 1 && submitOnce == true }"> - Ce champs est obligatoire</span></label>
+      <label for="lastname">Votre NOM*<span :class="{ invalidMessage: lastnameValue.length < 1 && submitOnce == true }">{{ errMessage }}</span></label>
       <input type="text" id="lastname" name="lastname" v-model="lastnameValue" :class="{ invalid: lastnameValue.length < 1  && submitOnce == true }" />
     </div>
 
     <div class="formItem demiItem">
-      <label for="firstname">Votre PRÉNOM *<span :class="{ invalidMessage: firstnameValue.length < 1  && submitOnce == true }"> - Ce champs est obligatoire</span></label>
+      <label for="firstname">Votre PRÉNOM *<span :class="{ invalidMessage: firstnameValue.length < 1  && submitOnce == true }">{{ errMessage }}</span></label>
       <input type="text" id="firstname" name="firstname" v-model="firstnameValue" :class="{ invalid: firstnameValue.length < 1  && submitOnce == true }" />
     </div>
 
     <div class="formItem">
-      <label for="email">Votre EMAIL *<span :class="{ invalidMessage: emailValue.length < 1  && submitOnce == true }"> - Ce champs est obligatoire</span></label>
+      <label for="email">Votre EMAIL *<span :class="{ invalidMessage: emailValue.length < 1  && submitOnce == true }">{{ errMessage }}</span></label>
       <input type="email" id="email" name="email" v-model="emailValue" :class="{ invalid: emailValue.length < 1  && submitOnce == true }" />
     </div>
 
     <div class="formItem">
-      <label for="object">SUJET *<span :class="{ invalidMessage: objectValue.length < 1  && submitOnce == true }"> - Ce champs est obligatoire</span></label>
+      <label for="object">SUJET *<span :class="{ invalidMessage: objectValue.length < 1  && submitOnce == true }">{{ errMessage }}e</span></label>
       <input type="text" id="object" name="object" v-model="objectValue" :class="{ invalid: objectValue.length < 1  && submitOnce == true }" />
     </div>
 
     <div class="formItem">
-      <label for="message">MESSAGE *<span :class="{ invalidMessage: messageValue.length < 1  && submitOnce == true }"> - Ce champs est obligatoire</span></label>
+      <label for="message">MESSAGE *<span :class="{ invalidMessage: messageValue.length < 1  && submitOnce == true }">{{ errMessage }}</span></label>
       <textarea id="message" name="message" v-on:keyup="autoHeightTextArea" v-model="messageValue" :class="{ invalid: messageValue.length < 1  && submitOnce == true }" />
     </div>
 
@@ -83,7 +86,7 @@ const submitOnce = ref(false);
 
 /* LAYOUT */
 .wrapper {
-  padding: 50px 0;
+  padding: 50px 0 0;
   position: relative;
   z-index: 10;
 

@@ -4,58 +4,63 @@
 <template>
     <div class="wrapper">
         <div id="skills">
+
+            <!-- List of Web langages I can use -->
             <div id="langages">
                 <ul>
                     <li>
-                        <img src="../assets/icon-html.svg" alt="Icone HTML 5">
+                        <img src="../assets/icon/icon-html.svg" alt="Icone HTML 5">
                         <p>HTML</p>
                     </li>
-                    <li class="separator"><img src="../assets/spark-white.svg" alt="Etoile blanche"></li>
+                    <li class="separator"><img src="../assets/icon/spark-white.svg" alt="Etoile blanche"></li>
                     <li>
-                        <img src="../assets/icon-css.svg" alt="Icone CSS 3">
+                        <img src="../assets/icon/icon-css.svg" alt="Icone CSS 3">
                         <p>CSS</p>
                     </li>
-                    <li class="separator"><img src="../assets/spark-white.svg" alt="Etoile blanche"></li>
+                    <li class="separator"><img src="../assets/icon/spark-white.svg" alt="Etoile blanche"></li>
                     <li>
-                        <img src="../assets/icon-js.svg" alt="Icone JavaScript">
+                        <img src="../assets/icon/icon-js.svg" alt="Icone JavaScript">
                         <p>JAVASCRIPT</p>
                     </li>
-                    <li class="separator"><img src="../assets/spark-white.svg" alt="Etoile blanche"></li>
+                    <li class="separator"><img src="../assets/icon/spark-white.svg" alt="Etoile blanche"></li>
                     <li>
-                        <img src="../assets/icon-php.svg" alt="Icone PHP">
+                        <img src="../assets/icon/icon-php.svg" alt="Icone PHP">
                         <p>PHP</p>
                     </li>
-                    <li class="separator"><img src="../assets/spark-white.svg" alt="Etoile blanche"></li>
+                    <li class="separator"><img src="../assets/icon/spark-white.svg" alt="Etoile blanche"></li>
                     <li>
-                        <img src="../assets/icon-vue.svg" alt="Icone Vue.js">
+                        <img src="../assets/icon/icon-vue.svg" alt="Icone Vue.js">
                         <p>VUE.JS</p>
                     </li>
                 </ul>
             </div>
+
+            <!-- List of services I can provide -->
             <div id="prestations">
                 <div id="prestationsTexte">
                     <h2 class="yellowUnderline">Titre "Services et produits"</h2>
                     <p>Blablabla Lorem ipsum dolore truc muche</p>
                 </div>
                 <div class="blocService">
-                    <img src="../assets/icon-webdesign.svg" alt="Icone Webdesign - écran d'ordinateur contenant des blocs"/>
+                    <img src="../assets/icon/icon-webdesign.svg" alt="Icone Webdesign - écran d'ordinateur contenant des blocs"/>
                     <h4>Webdesign</h4>
                     <p><strong>J'ai besoin d'une présence digitale</strong><br>
                     Plus qu'une vitrine, votre présence sur internet est un gage de confiance, de notoriété. Ensemble, concevons votre site ou votre application mobile à votre image, dont les fonctionnalités correspondent à vos besoins.</p>
                 </div>
                 <div class="blocService">
-                    <img src="../assets/icon-developpement.svg" alt="Icone Développement - écran d'ordinateur contenant une balise HTML auto-fermante"/>
+                    <img src="../assets/icon/icon-developpement.svg" alt="Icone Développement - écran d'ordinateur contenant une balise HTML auto-fermante"/>
                     <h4>Développement</h4>
                     <p><strong>J'ai besoin d'augmenter mon CA</strong><br>
                     Internet est le meilleur moyen de communiquer avec ses prospects et agrandir sa clientèle. Construisons côtes à côtes vos projets digitaux comme un site vitrine ou e-commerce, une application ou encore une API…</p>
                 </div>
                 <div class="blocService">
-                    <img src="../assets/icon-optimisation.svg" alt="Icone Optimisation - écran d'ordinateur contenant une courbe de graphique montante"/>
+                    <img src="../assets/icon/icon-optimisation.svg" alt="Icone Optimisation - écran d'ordinateur contenant une courbe de graphique montante"/>
                     <h4>Optimisation</h4>
-                    <p><strong>J'ai besoin d'une présence digitale</strong><br>
-                    Plus qu'une vitrine, votre présence sur internet est un gage de confiance, de notoriété. Ensemble, concevons votre site ou votre application mobile à votre image, dont les fonctionnalités correspondent à vos besoins.</p>
+                    <p><strong>J'ai besoin de booster mon SEO</strong><br>
+                    Saviez-vous que la sémantique de votre code, ou le temps de chargement de vos pages, peuvent impacter votre référencement ? Revoyons votre SEO, mettons en place un plug-in sur mesure, afin que votre site soit au top ! </p>
                 </div>
             </div>
+
         </div>
     </div>
 

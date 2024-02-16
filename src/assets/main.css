@@ -18,7 +18,7 @@ h2{
   font-weight: 600;
 }
 h3{
-  font-size:25px;
+  font-size:20px;
   font-weight: 700;
   display: inline-block;
 }
@@ -26,6 +26,9 @@ h4{
   font-size:20px;
   font-weight: 700;
   text-transform: uppercase;
+}
+p.sousTitre{
+  margin:20px 0 50px;
 }
 
 /* Custom styles */

@@ -5,7 +5,10 @@
 
 <template>
     <div class="wrapper">
+
         <div class="identity">
+
+            <!-- Text part of presentation -->
             <div id="identityAccroche">
                 <h1>Soyez fort de votre présence digitale !</h1>
                 <div id="identityPresentation">
@@ -13,18 +16,23 @@
                     <strong class="yellowUnderline">qualité, expertise et créativité !</strong>
                 </div>
             </div>
+
+            <!-- Main image + social icons -->
             <div id="identityPhoto">
                 <div id="identityPhotoWrap">
-                    <img src="../assets/photoAlexandre.png" alt="Photographie de Alexandre Dupré - Homme avec des lunettes et un polo noir, sur fond jaune" />
+                    <img src="../assets/img/photoAlexandre.png" alt="Photographie de Alexandre Dupré - Homme avec des lunettes et un polo noir, sur fond jaune" />
                     <div id="identityReseauxSociaux">
                         <IconesReseauxSociaux />
                     </div>
                 </div>
             </div>
+
+            <!-- CallToAction : #Contact -->
             <div id="identityCTAContact">
                 <a href="#contact" v-on:click="toggleResponsiveMenu"><ContactButton /></a>
                 <span class="minify">En plus, le devis est gratuit !</span>
             </div>
+
         </div>
     </div>
 
@@ -37,10 +45,6 @@
     position: relative;
     z-index:10;
 }
-
-/* ------------------- */
-/* Zone about Identity */
-/* ------------------- */
 
 /* LAYOUT with GRID */
 .identity{
@@ -73,6 +77,7 @@
     max-width:300px;
     height: auto;
 }
+
 /* Using Wrap as reference for absolute position of social medias icons */
 .identity #identityPhoto #identityPhotoWrap{
     position: relative;
@@ -92,6 +97,7 @@
 .identity #identityAccroche #identityPresentation strong{
     font-weight: 700;
 }
+
 
 @media (min-width: 1024px) {
 
