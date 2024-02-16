@@ -1,6 +1,7 @@
 <script setup>
 
     import ContactButton from '@/components/contactButton.vue';
+    import Carousel from '@/components/Carousel.vue';
     import {  ref } from 'vue';
 
 
@@ -231,40 +232,43 @@ window.onresize = centerModal;
             </div>
         </div>
     </div>
+     
 
     <!-- Modal Template : use datas to display informations -->
     <div id="backgroundBlur" :class="{ open: modalIsOpen }" v-on:click="closeModal">&nbsp;</div>
     <div id="modal" :class="{ open: modalIsOpen }">
 
-            <img id="closeModal" src="../assets/icon/close.svg" alt="Pictogramme de fermeture du modal"  v-on:click="closeModal" />
+        <img id="closeModal" src="../assets/icon/close.svg" alt="Pictogramme de fermeture du modal"  v-on:click="closeModal" />
 
-            <div id="modalContent">
+        <div id="modalContent">
 
-                <div id="carrousel">
-                    <img :src="`${ workIMG }`" :alt="`${ workALT }`" />
-                </div>
-
-                <div id="modalInfos">
-                    <h3>{{ workTitle }}</h3>
-                    <p class="contextWork">{{ workContext }}</p>
-
-                    <div id="tools" >
-                        <img src="../assets/icon/icon-html-bleu.svg" alt="Icone HTML" :class="{ tool: html }" />
-                        <img src="../assets/icon/icon-css-bleu.svg" alt="Icone CSS" :class="{ tool: css }" />
-                        <img src="../assets/icon/icon-js-bleu.svg" alt="Icone Javascript" :class="{ tool: js }" />
-                        <img src="../assets/icon/icon-php-bleu.svg" alt="Icone PHP" :class="{ tool: php }" />
-                        <p :class="{ tool: indesign }" >Indesign</p>
-                        <p :class="{ tool: illustrator }" >Illustrator</p>
-                        <p :class="{ tool: copywritting }" >Copywriting</p>
-                    </div>
-
-                    <p class="descriptionWork">{{ workDescription }}</p>
-                    <p class="linkWork"><a :href="`${ workLinkURL }`">{{ workLinkText }}</a></p>
-                    <p class="contactWork" ><a href="#contact" v-on:click="closeModal"><ContactButton /></a></p>
-                </div>
-                
+            <div id="carrousel">
+                <Carousel /> 
             </div>
+
+            <div id="modalInfos">
+                <h3>{{ workTitle }}</h3>
+                <p class="contextWork">{{ workContext }}</p>
+
+                <div id="tools" >
+                    <img src="../assets/icon/icon-html-bleu.svg" alt="Icone HTML" :class="{ tool: html }" />
+                    <img src="../assets/icon/icon-css-bleu.svg" alt="Icone CSS" :class="{ tool: css }" />
+                    <img src="../assets/icon/icon-js-bleu.svg" alt="Icone Javascript" :class="{ tool: js }" />
+                    <img src="../assets/icon/icon-php-bleu.svg" alt="Icone PHP" :class="{ tool: php }" />
+                    <p :class="{ tool: indesign }" >Indesign</p>
+                    <p :class="{ tool: illustrator }" >Illustrator</p>
+                    <p :class="{ tool: copywritting }" >Copywriting</p>
+                </div>
+
+                <p class="descriptionWork">{{ workDescription }}</p>
+                <p class="linkWork"><a :href="`${ workLinkURL }`">{{ workLinkText }}</a></p>
+                <p class="contactWork" ><a href="#contact" v-on:click="closeModal"><ContactButton /></a></p>
+            </div>
+            
         </div>
+    </div>
+
+       
 
 </template>
 
