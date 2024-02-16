@@ -22,8 +22,7 @@
         color: var(--c-text-light);
         font-weight: 600;
         border-radius: 10px;
-        padding: 10px;
-        max-height: 30px;
+        padding: 5px 10px;
         max-width:350px;
 
         display: flex;
