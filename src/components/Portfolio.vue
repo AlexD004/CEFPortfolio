@@ -30,10 +30,8 @@ export default {
         workLinkText: "",
         workLinkURL: "",
         featuredImage: "",
-        workIMG: "",
-        workALT: "",
 
-        /* Works List */
+        /* Works List : 'id' is used to target a specific work in array, id = position in array */
         works: [{
             id: '0',
             title: 'Graphoreme',
@@ -43,9 +41,9 @@ export default {
                 css: true,
                 js: true,
                 php: true,
-                indesign: true,
-                illustrator: true,
-                copywritting: true
+                indesign: false,
+                illustrator: false,
+                copywritting: false
             },
             description: 'bla bla',
             linkText: 'Visiter le site',
@@ -149,11 +147,17 @@ export default {
 
   methods: {
     openModal: function(e) {
+
         this.modalIsOpen = true;
 
+        /* Build custom variables to call in the modal */
+        /* ------------------------------------------- */
+
+        /* Basic Data */
         this.workTitle = this.$data.works[e].title;
         this.workContext =this.$data.works[e].context;
-
+        this.workDescription = this.$data.works[e].description;
+        /* Datas about tools and langages used in project */
         this.workTools = this.$data.works[e].tools;
         this.html = this.workTools.html;
         this.css = this.workTools.css;
@@ -162,14 +166,11 @@ export default {
         this.indesign = this.workTools.indesign;
         this.illustrator = this.workTools.illustrator;
         this.copywritting = this.workTools.copywritting;
-
-        this.workDescription = this.$data.works[e].description;
+        /* Datas about link to online project or pdf */
         this.workLinkText = this.$data.works[e].linkText;
         this.workLinkURL = this.$data.works[e].linkURL;
 
-        this.workIMG = this.$data.works[e].featuredImage.url;
-        this.workAlt = this.$data.works[e].featuredImage.alt;
-
+        /* Function to center the modal in the window */
         centerModal();
 
     },
@@ -190,16 +191,21 @@ const centerModal = () => {
     
     const modal = document.getElementById('modal');
 
+    /* Get the value to have on right and left */
     let screenWidth = window.innerWidth;
     let offsetWidth = (screenWidth - (screenWidth * .9)) / 2 ;
+
+    /* Get the value to have on top and bottom */
     let screenHeight = window.innerHeight;
     let offsetHeight = (screenHeight - (screenHeight * .9)) / 2 ;
 
+    /* Set values to center */
     modal.style.left = offsetWidth + 'px';
     modal.style.top = offsetHeight + 'px';
 
 }
 
+/* Center the modal, even if the window is resized */
 window.onresize = centerModal;
 
 </script>
@@ -261,7 +267,7 @@ window.onresize = centerModal;
                 </div>
 
                 <p class="descriptionWork">{{ workDescription }}</p>
-                <p class="linkWork"><a :href="`${ workLinkURL }`">{{ workLinkText }}</a></p>
+                <p class="linkWork"><a :href="`${ workLinkURL }`" target="_blank">{{ workLinkText }}</a></p>
                 <p class="contactWork" ><a href="#contact" v-on:click="closeModal"><ContactButton /></a></p>
             </div>
             
