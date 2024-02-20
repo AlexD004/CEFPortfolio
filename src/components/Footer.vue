@@ -18,13 +18,13 @@
                         <li><a href="/">Présentation</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#portfolio">Créations</a></li>
-                        <li><a href="#">Mentions Légales</a></li>
+                        <li><a href="/mentions-legales">Mentions Légales</a></li>
                     </ul>
                 </nav>
             </div>
             <div id="footerSociaux">
                 <h3>Réseaux</h3>
-                <IconesReseauxSociaux />
+                <IconesReseauxSociaux :inFooter="true" />
             </div>
         </div>
         <div id="copyright">Alexandre Dupré - Tous droits réservés - Dernière mise à jour le XX/XX/2024</div>

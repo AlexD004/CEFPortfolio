@@ -12,6 +12,10 @@ const router = createRouter({
     {
       path: '/:notFound',
       component: () => import('../views/PageNotFound.vue')
+    },
+    {
+      path: '/mentions-legales',
+      component: () => import('../views/MentionsLegales.vue')
     }
   ]
 })

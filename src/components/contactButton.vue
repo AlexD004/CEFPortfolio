@@ -35,7 +35,7 @@
 
     .contactButton:hover{
         box-shadow: 3px 3px 0 var(--c-dark-blue);
-        padding: 15px;
+        padding: 5px 15px;
         transition:.3s;
     }
 
