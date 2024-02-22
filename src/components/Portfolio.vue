@@ -17,6 +17,7 @@ export default {
         modalIsOpen: false,
         workTitle: "",
         workContext: "",
+        workDate: "",
         workTools: "",
         tools:"",
         html: false,
@@ -37,6 +38,7 @@ export default {
             id: '0',
             title: 'Graphoreme',
             context: 'Portfolio freelance',
+            date: "2017",
             tools: {
                 html: true,
                 css: true,
@@ -82,6 +84,7 @@ export default {
             id: '1',
             title: 'Élodie Lemoine Conseil',
             context: 'Site vitrine',
+            date: "2022",
             tools:{
                 html: true,
                 css: true,
@@ -127,6 +130,7 @@ export default {
             id: '2',
             title: 'AssurEuro',
             context: 'Landing Page',
+            date: "2023",
             tools: {
                 html: true,
                 css: true,
@@ -172,6 +176,7 @@ export default {
             id: '3',
             title: 'La Socketterie',
             context: 'Cahier des charges',
+            date: "2023",
             tools: {
                 html: false,
                 css: false,
@@ -183,7 +188,7 @@ export default {
             },
             description: 'bla bla',
             linkText: 'Voir le pdf',
-            linkURL: '#',
+            linkURL: '/src/portfolio/socketterie/SOCKETTERIE_CahierDesCharges.pdf',
 
             featuredImage: {
                 url: "/src/portfolio/socketterie/socketterie01.png",
@@ -217,6 +222,7 @@ export default {
             id: '4',
             title: 'Energie Travaux France',
             context: 'Landing Page',
+            date: "2023",
             tools: {
                 html: true,
                 css: true,
@@ -272,6 +278,7 @@ export default {
         /* Basic Data */
         this.workTitle = this.$data.works[e].title;
         this.workContext =this.$data.works[e].context;
+        this.workDate =this.$data.works[e].date;
         this.workDescription = this.$data.works[e].description;
         /* Datas about tools and langages used in project */
         this.workTools = this.$data.works[e].tools;
@@ -341,13 +348,13 @@ window.onresize = centerModal;
 
             <!-- Works Template : use datas to build each work card -->
             <div 
-                v-for="({id, title, context, description, featuredImage}, index) in works"
+                v-for="({id, title, context, date, description, featuredImage}, index) in works"
                 class="work"
                 v-on:click=" openModal( id ); "
             >
                 <div class="workInfos">
                     <h3>{{ title }}</h3>
-                    <p class="contextWork">{{ context }}</p>
+                    <p class="contextWork">{{ context }} - {{ date }}</p>
                     <p class="descriptionWork">{{ description }}</p>
                 </div>
                 <div class="workImage">
@@ -372,7 +379,7 @@ window.onresize = centerModal;
 
             <div id="modalInfos">
                 <h3>{{ workTitle }}</h3>
-                <p class="contextWork">{{ workContext }}</p>
+                <p class="contextWork">{{ workContext }} - {{ workDate }}</p>
 
                 <div id="tools" >
                     <img src="../assets/icon/icon-html-bleu.svg" alt="Icone HTML" :class="{ tool: html }" />
