@@ -1,8 +1,11 @@
 <script setup>
 
   import ContactButton from '@/components/contactButton.vue';
+  import {  ref } from 'vue';
 
-  /* --- FUNCTIONS --- */
+    /* |||||||||||||||||||||||||||||||||| */
+    /* Functions to toggle the navigation */
+    /* |||||||||||||||||||||||||||||||||| */
 
     /* Toggle responsive menu on clik on open/close buttons */
     function toggleResponsiveMenu() {
@@ -19,9 +22,55 @@
             navList.classList.remove("open");
         }
     }
-
  
 </script>
+
+<script>
+
+
+    /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+    /* Set the class 'active' to the navigation item when user scroll and pass the anchor */
+    /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+
+    export default {
+
+        data() {
+            return {
+                servicesActive: false,
+                portfolioActive: false
+            }
+        },
+
+        created() {
+            window.addEventListener("scroll", this.handleScroll);
+        },
+
+        destroyed() {
+            window.removeEventListener("scroll", this.handleScroll);
+        },
+
+        methods: {
+            handleScroll(event) {
+
+                /* Set variables to get anchors position from top */
+                const servicesAnchorOffset = document.getElementById("services").offsetTop;
+                const portfolioAnchorOffset = document.getElementById("portfolio").offsetTop;
+
+                /* Switch active states */
+                if( window.scrollY >= servicesAnchorOffset && window.scrollY < portfolioAnchorOffset){
+                    this.servicesActive = true;
+                    this.portfolioActive = false;
+                }
+                if( window.scrollY >= portfolioAnchorOffset){
+                    this.servicesActive = false;
+                    this.portfolioActive = true;
+                }
+            },
+        },
+    }
+
+</script>
+
 
 <template>
 
@@ -42,8 +91,8 @@
 
             <!-- Navigation -->
             <ul>
-                <li><a href="#services" v-on:click="removeResponsiveMenu">Services</a></li>
-                <li><a href="#portfolio" v-on:click="removeResponsiveMenu">Créations</a></li>
+                <li><a href="#services" v-on:click="removeResponsiveMenu" :class="{ active: servicesActive }">Services</a></li>
+                <li><a href="#portfolio" v-on:click="removeResponsiveMenu" :class="{ active: portfolioActive }">Créations</a></li>
                 <li class="onlyResponsive" v-on:click="removeResponsiveMenu"><a href="#contact" v-on:click="removeResponsiveMenu"><ContactButton /></a></li>
             </ul>
         </nav>
@@ -135,6 +184,9 @@ li a::before{
     transition: .4s ease;
 }
 li a:hover::before{
+    transform: scaleX(1);
+}
+li a.active::before{
     transform: scaleX(1);
 }
 
