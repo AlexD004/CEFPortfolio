@@ -54,6 +54,8 @@ main{
   align-items: center;
   transform: scale(50%);
   height: 50%;
+  max-height: 330px;
+  min-height: 300px;
   position: relative;
 }
 
