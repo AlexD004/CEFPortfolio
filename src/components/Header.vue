@@ -48,7 +48,7 @@
             </ul>
         </nav>
         
-        <span class="onlyDesktop"><a href="#contact" v-on:click="removeResponsiveMenu"><ContactButton /></a></span>
+        <span class="onlyDesktop"><a href="/#contact" v-on:click="removeResponsiveMenu"><ContactButton /></a></span>
 
     </div>
 

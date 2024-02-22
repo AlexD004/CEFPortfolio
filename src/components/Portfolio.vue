@@ -173,13 +173,13 @@ export default {
             title: 'La Socketterie',
             context: 'Cahier des charges',
             tools: {
-                html: true,
-                css: true,
-                js: true,
-                php: true,
-                indesign: false,
-                illustrator: false,
-                copywritting: false
+                html: false,
+                css: false,
+                js: false,
+                php: false,
+                indesign: true,
+                illustrator: true,
+                copywritting: true
             },
             description: 'bla bla',
             linkText: 'Voir le pdf',
