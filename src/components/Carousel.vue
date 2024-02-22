@@ -1,12 +1,11 @@
 <script setup>
-
-import {  ref } from 'vue';
-
 </script>
 
 <script>
 
 export default {
+
+  props: ['gallery'],
 
   data() {
     return {
@@ -16,23 +15,7 @@ export default {
         currentSlide: 0,
 
         /* Slides List */
-        items: [
-            {
-                url: 'src/assets/img/etf.png',
-                alt: 'Energie Travaux France',
-                isCurrent: false
-            },
-            {
-                url: 'src/assets/img/assureuro.png',
-                alt: 'AssurEuro',
-                isCurrent: false
-            },
-            {
-                url: 'src/assets/img/elc.png',
-                alt: 'ELC',
-                isCurrent: false
-            },
-        ]
+        items: this.$props.gallery
     }
   },
 
@@ -64,7 +47,6 @@ export default {
         }
         /* Call updateSlide to display the new currentSlide */
         this.updateSlide(this.currentSlide);
-
     },
 
     /* Actions when click on previous button */
@@ -86,8 +68,10 @@ export default {
   },
 
   mounted() {
+    
     /* Call the updateSlide with the first slide in the list to setup the first display */
     this.updateSlide(this.currentSlide);
+
   }
 
 }

@@ -12,7 +12,7 @@ export default {
 
   data() {
     return { 
-
+ 
         /* Variables declarations */
         modalIsOpen: false,
         workTitle: "",
@@ -30,6 +30,7 @@ export default {
         workLinkText: "",
         workLinkURL: "",
         featuredImage: "",
+        galleryItems: [],
 
         /* Works List : 'id' is used to target a specific work in array, id = position in array */
         works: [{
@@ -50,9 +51,32 @@ export default {
             linkURL: 'https://graphoreme.com',
 
             featuredImage: {
-                url: "/src/assets/img/graphoreme.png",
+                url: "/src/portfolio/graphoreme/graphoreme-01.png",
                 alt: "Capture d'écran de la page d'accueil du site graphoreme.com"
-            }
+            },
+
+            gallery: [
+                {
+                    url: "/src/portfolio/graphoreme/graphoreme-01.png",
+                    alt: "Capture d'écran de la page d'accueil du site graphoreme.com",
+                    isCurrent: false
+                },
+                {
+                    url: "/src/portfolio/graphoreme/graphoreme-02.png",
+                    alt: "Capture d'écran de la section portfolio du site graphoreme.com",
+                    isCurrent: false
+                },
+                {
+                    url: "/src/portfolio/graphoreme/graphoreme-03.png",
+                    alt: "Capture d'écran d'une page de présentation de projet sur le site graphoreme.com",
+                    isCurrent: false
+                },
+                {
+                    url: "/src/portfolio/graphoreme/graphoreme-04.png",
+                    alt: "Capture d'écran du pied de page sur le site graphoreme.com",
+                    isCurrent: false
+                }
+            ]
         },
         {
             id: '1',
@@ -72,9 +96,32 @@ export default {
             linkURL: 'https://www.elodielemoineconseil.com/',
 
             featuredImage: {
-                url: "/src/assets/img/elc.png",
-                alt: "Capture d'écran de la page d'accueil du site elodielemoineconseil.com"
-            }
+                url: "/src/portfolio/elc/elc01.png",
+                alt: "Maquette de la page d'accueil du site elodielemoineconseil.com"
+            },
+
+            gallery: [
+                {
+                    url: "/src/portfolio/elc/elc01.png",
+                    alt: "Maquette de la page d'accueil du site elodielemoineconseil.com",
+                    isCurrent: false
+                },
+                {
+                    url: "/src/portfolio/elc/elc02.png",
+                    alt: "Maquette d'une page classique du site elodielemoineconseil.com",
+                    isCurrent: false
+                },
+                {
+                    url: "/src/portfolio/elc/elc03.png",
+                    alt: "Maquette d'une page FAQ du site elodielemoineconseil.com",
+                    isCurrent: false
+                },
+                {
+                    url: "/src/portfolio/elc/elc04.png",
+                    alt: "Maquette de la page type catalogue du blog sur le site elodielemoineconseil.com",
+                    isCurrent: false
+                }
+            ]
         },
         {
             id: '2',
@@ -94,31 +141,77 @@ export default {
             linkURL: 'https://www.assureuro.offres-selectionnees.fr/',
 
             featuredImage: {
-                url: "/src/assets/img/assureuro.png",
+                url: "/src/portfolio/assureuro/assureuro01.png",
                 alt: "Capture d'écran de la page d'accueil du site assureuro.offres-selectionnees.fr"
-            }
+            },
+
+            gallery: [
+                {
+                    url: "/src/portfolio/assureuro/assureuro01.png",
+                    alt: "Capture d'écran de la page d'accueil du site assureuro.offres-selectionnees.fr",
+                    isCurrent: false
+                },
+                {
+                    url: "/src/portfolio/assureuro/assureuro02.png",
+                    alt: "Capture d'écran du formulaire du site assureuro.offres-selectionnees.fr",
+                    isCurrent: false
+                },
+                {
+                    url: "/src/portfolio/assureuro/assureuro03.png",
+                    alt: "Capture d'écran de la section 'services' du site assureuro.offres-selectionnees.fr",
+                    isCurrent: false
+                },
+                {
+                    url: "/src/portfolio/assureuro/assureuro04.png",
+                    alt: "Capture d'écran de la section 'avantages' du site assureuro.offres-selectionnees.fr",
+                    isCurrent: false
+                }
+            ]
         },
         {
             id: '3',
             title: 'La Socketterie',
             context: 'Cahier des charges',
             tools: {
-                html: true,
-                css: true,
-                js: true,
-                php: true,
-                indesign: false,
-                illustrator: false,
-                copywritting: false
+                html: false,
+                css: false,
+                js: false,
+                php: false,
+                indesign: true,
+                illustrator: true,
+                copywritting: true
             },
             description: 'bla bla',
             linkText: 'Voir le pdf',
             linkURL: '#',
 
             featuredImage: {
-                url: "/src/assets/img/cahierDesCharges.png",
+                url: "/src/portfolio/socketterie/socketterie01.png",
                 alt: "Charte graphique, extraite du cahier des charges du site internet de la Socketterie"
-            }
+            },
+
+            gallery: [
+                {
+                    url: "/src/portfolio/socketterie/socketterie01.png",
+                    alt: "Charte graphique, extraite du cahier des charges du site internet de la Socketterie",
+                    isCurrent: false
+                },
+                {
+                    url: "/src/portfolio/socketterie/socketterie02.png",
+                    alt: "Exemple de wireframe, extrait du cahier des charges du site internet de la Socketterie",
+                    isCurrent: false
+                },
+                {
+                    url: "/src/portfolio/socketterie/socketterie03.png",
+                    alt: "Exemple de tableau de détails techniques, extrait du cahier des charges du site internet de la Socketterie",
+                    isCurrent: false
+                },
+                {
+                    url: "/src/portfolio/socketterie/socketterie04.png",
+                    alt: "Exemple de planning de production, extrait du cahier des charges du site internet de la Socketterie",
+                    isCurrent: false
+                }
+            ]
         },
         {
             id: '4',
@@ -138,9 +231,32 @@ export default {
             linkURL: 'https://www.energie-travaux-france.fr/',
 
             featuredImage: {
-                url: "/src/assets/img/etf.png",
+                url: "/src/portfolio/etf/etf01.png",
                 alt: "Capture d'écran de la page d'accueil du site energie-travaux-france.fr"
-            }
+            },
+
+            gallery: [
+                {
+                    url: "/src/portfolio/etf/etf01.png",
+                    alt: "Capture d'écran de la page d'accueil du site energie-travaux-france.fr",
+                    isCurrent: false
+                },
+                {
+                    url: "/src/portfolio/etf/etf02.png",
+                    alt: "Capture d'écran de la partie engagements du site energie-travaux-france.fr",
+                    isCurrent: false
+                },
+                {
+                    url: "/src/portfolio/etf/etf03.png",
+                    alt: "Capture d'écran de la partie bénéfices du site energie-travaux-france.fr",
+                    isCurrent: false
+                },
+                {
+                    url: "/src/portfolio/etf/etf04.png",
+                    alt: "Image de visuel pour réseaux sociaux",
+                    isCurrent: false
+                }
+            ]
         }]
     }
   },
@@ -169,6 +285,8 @@ export default {
         /* Datas about link to online project or pdf */
         this.workLinkText = this.$data.works[e].linkText;
         this.workLinkURL = this.$data.works[e].linkURL;
+        /* Datas about gallery */
+        this.galleryItems = this.$data.works[e].gallery;
 
         /* Function to center the modal in the window */
         centerModal();
@@ -249,7 +367,7 @@ window.onresize = centerModal;
         <div id="modalContent">
 
             <div id="carrousel">
-                <Carousel /> 
+                <Carousel v-if="modalIsOpen" :gallery="galleryItems" /> 
             </div>
 
             <div id="modalInfos">

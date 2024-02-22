@@ -9,6 +9,7 @@
 
 </script>
 
+
 <template>
 
   <Header />
@@ -58,7 +59,7 @@
   top:0;
   left: 0;
 
-  background-image: url('../assets/pattern-sparks.svg');
+  background-image: url('../assets/icon/pattern-sparks.svg');
   background-size: 50px;
   opacity: 15%;
 }
