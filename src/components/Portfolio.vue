@@ -4,6 +4,40 @@
     import Carousel from '@/components/Carousel.vue';
     import {  ref } from 'vue';
 
+    // Imports images and pdf for works
+
+    // Work 01
+    import work01Img01 from "@/assets/img/graphoreme-01.png";
+    import work01Img02 from "@/assets/img/graphoreme-02.png";
+    import work01Img03 from "@/assets/img/graphoreme-03.png";
+    import work01Img04 from "@/assets/img/graphoreme-04.png";
+
+    // Work 02
+    import work02Img01 from "@/assets/img/elc01.png";
+    import work02Img02 from "@/assets/img/elc02.png";
+    import work02Img03 from "@/assets/img/elc03.png";
+    import work02Img04 from "@/assets/img/elc04.png";
+
+    // Work 03
+    import work03Img01 from "@/assets/img/assureuro01.png";
+    import work03Img02 from "@/assets/img/assureuro02.png";
+    import work03Img03 from "@/assets/img/assureuro03.png";
+    import work03Img04 from "@/assets/img/assureuro04.png";
+
+    // Work 04
+    import work04Img01 from "@/assets/img/socketterie01.png";
+    import work04Img02 from "@/assets/img/socketterie02.png";
+    import work04Img03 from "@/assets/img/socketterie03.png";
+    import work04Img04 from "@/assets/img/socketterie04.png";
+    /* PDF */ import work04Pdf01 from "@/assets/img/SOCKETTERIE_CahierDesCharges.pdf";
+
+    // Work 05
+    import work05Img01 from "@/assets/img/etf01.png";
+    import work05Img02 from "@/assets/img/etf02.png";
+    import work05Img03 from "@/assets/img/etf03.png";
+    import work05Img04 from "@/assets/img/etf04.png";
+
+
 
 </script>
 <script>
@@ -53,28 +87,28 @@ export default {
             linkURL: 'https://graphoreme.com',
 
             featuredImage: {
-                url: "/src/portfolio/graphoreme/graphoreme-01.png",
+                url: work01Img01,
                 alt: "Capture d'écran de la page d'accueil du site graphoreme.com"
             },
 
             gallery: [
                 {
-                    url: "/src/portfolio/graphoreme/graphoreme-01.png",
+                    url: work01Img01,
                     alt: "Capture d'écran de la page d'accueil du site graphoreme.com",
                     isCurrent: false
                 },
                 {
-                    url: "/src/portfolio/graphoreme/graphoreme-02.png",
+                    url: work01Img02,
                     alt: "Capture d'écran de la section portfolio du site graphoreme.com",
                     isCurrent: false
                 },
                 {
-                    url: "/src/portfolio/graphoreme/graphoreme-03.png",
+                    url: work01Img03,
                     alt: "Capture d'écran d'une page de présentation de projet sur le site graphoreme.com",
                     isCurrent: false
                 },
                 {
-                    url: "/src/portfolio/graphoreme/graphoreme-04.png",
+                    url: work01Img04,
                     alt: "Capture d'écran du pied de page sur le site graphoreme.com",
                     isCurrent: false
                 }
@@ -99,28 +133,28 @@ export default {
             linkURL: 'https://www.elodielemoineconseil.com/',
 
             featuredImage: {
-                url: "/src/portfolio/elc/elc01.png",
+                url: work02Img01,
                 alt: "Maquette de la page d'accueil du site elodielemoineconseil.com"
             },
 
             gallery: [
                 {
-                    url: "/src/portfolio/elc/elc01.png",
+                    url: work02Img01,
                     alt: "Maquette de la page d'accueil du site elodielemoineconseil.com",
                     isCurrent: false
                 },
                 {
-                    url: "/src/portfolio/elc/elc02.png",
+                    url: work02Img02,
                     alt: "Maquette d'une page classique du site elodielemoineconseil.com",
                     isCurrent: false
                 },
                 {
-                    url: "/src/portfolio/elc/elc03.png",
+                    url: work02Img03,
                     alt: "Maquette d'une page FAQ du site elodielemoineconseil.com",
                     isCurrent: false
                 },
                 {
-                    url: "/src/portfolio/elc/elc04.png",
+                    url: work02Img04,
                     alt: "Maquette de la page type catalogue du blog sur le site elodielemoineconseil.com",
                     isCurrent: false
                 }
@@ -145,28 +179,28 @@ export default {
             linkURL: 'https://www.assureuro.offres-selectionnees.fr/',
 
             featuredImage: {
-                url: "/src/portfolio/assureuro/assureuro01.png",
+                url: work03Img01,
                 alt: "Capture d'écran de la page d'accueil du site assureuro.offres-selectionnees.fr"
             },
 
             gallery: [
                 {
-                    url: "/src/portfolio/assureuro/assureuro01.png",
+                    url: work03Img01,
                     alt: "Capture d'écran de la page d'accueil du site assureuro.offres-selectionnees.fr",
                     isCurrent: false
                 },
                 {
-                    url: "/src/portfolio/assureuro/assureuro02.png",
+                    url: work03Img02,
                     alt: "Capture d'écran du formulaire du site assureuro.offres-selectionnees.fr",
                     isCurrent: false
                 },
                 {
-                    url: "/src/portfolio/assureuro/assureuro03.png",
+                    url: work03Img03,
                     alt: "Capture d'écran de la section 'services' du site assureuro.offres-selectionnees.fr",
                     isCurrent: false
                 },
                 {
-                    url: "/src/portfolio/assureuro/assureuro04.png",
+                    url: work03Img04,
                     alt: "Capture d'écran de la section 'avantages' du site assureuro.offres-selectionnees.fr",
                     isCurrent: false
                 }
@@ -188,31 +222,31 @@ export default {
             },
             description: 'bla bla',
             linkText: 'Voir le pdf',
-            linkURL: '/src/portfolio/socketterie/SOCKETTERIE_CahierDesCharges.pdf',
+            linkURL: work04Pdf01,
 
             featuredImage: {
-                url: "/src/portfolio/socketterie/socketterie01.png",
+                url: work04Img01,
                 alt: "Charte graphique, extraite du cahier des charges du site internet de la Socketterie"
             },
 
             gallery: [
                 {
-                    url: "/src/portfolio/socketterie/socketterie01.png",
+                    url: work04Img01,
                     alt: "Charte graphique, extraite du cahier des charges du site internet de la Socketterie",
                     isCurrent: false
                 },
                 {
-                    url: "/src/portfolio/socketterie/socketterie02.png",
+                    url: work04Img02,
                     alt: "Exemple de wireframe, extrait du cahier des charges du site internet de la Socketterie",
                     isCurrent: false
                 },
                 {
-                    url: "/src/portfolio/socketterie/socketterie03.png",
+                    url: work04Img03,
                     alt: "Exemple de tableau de détails techniques, extrait du cahier des charges du site internet de la Socketterie",
                     isCurrent: false
                 },
                 {
-                    url: "/src/portfolio/socketterie/socketterie04.png",
+                    url: work04Img04,
                     alt: "Exemple de planning de production, extrait du cahier des charges du site internet de la Socketterie",
                     isCurrent: false
                 }
@@ -237,28 +271,28 @@ export default {
             linkURL: 'https://www.energie-travaux-france.fr/',
 
             featuredImage: {
-                url: "/src/portfolio/etf/etf01.png",
+                url: work05Img01,
                 alt: "Capture d'écran de la page d'accueil du site energie-travaux-france.fr"
             },
 
             gallery: [
                 {
-                    url: "/src/portfolio/etf/etf01.png",
+                    url: work05Img01,
                     alt: "Capture d'écran de la page d'accueil du site energie-travaux-france.fr",
                     isCurrent: false
                 },
                 {
-                    url: "/src/portfolio/etf/etf02.png",
+                    url: work05Img02,
                     alt: "Capture d'écran de la partie engagements du site energie-travaux-france.fr",
                     isCurrent: false
                 },
                 {
-                    url: "/src/portfolio/etf/etf03.png",
+                    url: work05Img03,
                     alt: "Capture d'écran de la partie bénéfices du site energie-travaux-france.fr",
                     isCurrent: false
                 },
                 {
-                    url: "/src/portfolio/etf/etf04.png",
+                    url: work05Img04,
                     alt: "Image de visuel pour réseaux sociaux",
                     isCurrent: false
                 }
