@@ -120,7 +120,7 @@ export default {
     height: 100%;
     
     background: #fff;
-    color:#fff;
+    color:var(--c-dark-blue);
     font-weight: 700;
     border-radius: inherit;
 }

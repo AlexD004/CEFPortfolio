@@ -157,9 +157,16 @@ form {
   padding: 20px;
   font-size: 14px;
   color: var(--c-dark-blue);
+  font-family:'Barlow', sans-serif;
 }
 .formItem textarea {
   min-height: 100px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.formItem textarea::-webkit-scrollbar{
+  display: none;
 }
 button[type="submit"] {
   outline: 0;

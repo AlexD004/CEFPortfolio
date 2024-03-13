@@ -18,6 +18,6 @@ const router = createRouter({
       component: () => import('../views/MentionsLegales.vue')
     }
   ]
-})
+}) 
 
 export default router

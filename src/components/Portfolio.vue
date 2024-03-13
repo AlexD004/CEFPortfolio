@@ -374,7 +374,7 @@ window.onresize = centerModal;
     <div class="wrapper">
 
         <!-- Section Title -->
-        <h2 class="yellowUnderline">Titre "Portfolio"</h2>
+        <h2 class="yellowUnderline">MES COLLABORATIONS</h2>
         <p class="sousTitre">Bla bla bla</p>
 
         <!-- Works Section -->
@@ -486,7 +486,7 @@ window.onresize = centerModal;
     filter: drop-shadow(0 0 7px #fff);
 }
 #closeModal:hover{
-    transform: scale(125%);
+    transform: scale(80%);
     transition:.3s;
 }
 

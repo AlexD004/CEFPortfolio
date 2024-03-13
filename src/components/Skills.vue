@@ -38,8 +38,15 @@
             <!-- List of services I can provide -->
             <div id="prestations">
                 <div id="prestationsTexte">
-                    <h2 class="yellowUnderline">Titre "Services et produits"</h2>
-                    <p>Blablabla Lorem ipsum dolore truc muche</p>
+                    <div id="wrapTexte">
+                        <h2 class="yellowUnderline">ÊTRE A SON COMPTE<br>N’EST PAS CHOSE AISÉE. </h2>
+                        <p>
+                            Il faut se faire une place, se constituer une clientèle, prouver sa valeur, etc. D’autant que l’entrepreneur est souvent accompagné du syndrome de l’imposteur… Bref un véritable parcours du combattant.
+                            Ce parcours je l’ai expérimenté et je l’expérimente encore aujourd’hui. Et je peux affirmer une chose, les obstacles paraissent beaucoup moins imposants lorsque l’on est entouré et accompagné. C’est pourquoi je mets un point d’honneur à qualifier mon travail comme une collaboration. 
+                            Je rejoins votre équipe, même si nous ne sommes que deux, pour vous apporter mon soutien. Vous recevez mon aide en graphisme grâce à mes études de direction artistique, ainsi que dans le développement de votre support de communication digital grâce à ma formation en développement web. 
+                            À la fin de notre collaboration, votre entreprise sera forte d’une identité assumée, qui vous ressemble et d’une communication établie dans les règles de l’art. Mais je ne disparais pas, je reste joignable et à votre écoute, toujours dans l’esprit d’un accompagnement au sein d’une équipe.
+                        </p>
+                    </div>
                 </div>
                 <div class="blocService">
                     <img src="../assets/icon/icon-webdesign.svg" alt="Icone Webdesign - écran d'ordinateur contenant des blocs"/>
@@ -110,19 +117,34 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 
     padding: 50px 40px 40px;
     border-radius:0 0 15px 15px;
 
     background: rgba(16,40,85,.1);
 }
+
 #prestationsTexte{
-    flex-grow: 2;
-    margin: 20px 0 40px;
+    margin: 20px 0 20px;
+    text-align: left;
+    width:100%;
+}
+
+#wrapTexte{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+}
+#prestationsTexte h2{
+    width:100%;
+    margin-bottom: 30px;
     text-align: center;
 }
 #prestationsTexte p{
-    margin-top: 20px;
+    width: 100%;
+    text-align: justify;
 }
 #prestations .blocService{
     display: flex;
@@ -130,7 +152,7 @@
     align-items: center;
 
     background: #fff;
-    width: 85%;
+    width: 100%;
     padding: 25px;
     border-radius: 15px;
 
@@ -170,12 +192,20 @@
         align-items: flex-start;
     }
     #prestationsTexte{
-        flex-grow: 2;
         margin: 0;
-        text-align: left;
     }
+
+    #prestationsTexte{
+        margin: 20px 0 80px;
+        width:100%;
+    }
+    #wrapTexte{
+        flex-direction: column;
+        width: 80%;
+    }
+
     #prestations .blocService{
-        width: 22%;
+        width: 30%;
         height:100%;
         padding: 15px;
 
