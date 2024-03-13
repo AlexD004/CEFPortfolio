@@ -1,14 +1,7 @@
-# vue-project
+# Portfolio CEF
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+There is a portfolio, designed and developped for my formation to become a fullstack developper.
+It use Vue.JS to structure and edit the content. It present works in a modal.
 
 ## Project Setup
 
