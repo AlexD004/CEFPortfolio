@@ -70,6 +70,9 @@
     text-align: center;
     margin-top:25px;
 }
+#identityCTAContact .contactButton {
+    margin: 0 auto;
+}
 
 /* Some precisions about elements layout */
 .identity #identityPhoto img{

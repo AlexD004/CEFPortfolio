@@ -23,7 +23,8 @@
         font-weight: 600;
         border-radius: 10px;
         padding: 5px 10px;
-        max-width:350px;
+        width:300px;
+        height: 34px;
 
         display: flex;
         justify-content: center;
