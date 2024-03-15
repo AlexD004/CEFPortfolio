@@ -10,5 +10,18 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+
+    <!-- EmailJS Scripts -->
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+      (function(){
+          emailjs.init({
+            publicKey: "gtH3eGjpnco2ghUE7",
+            blockHeadless: true,
+          });
+      })();
+    </script>
   </body>
 </html>

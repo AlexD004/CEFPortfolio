@@ -10,7 +10,7 @@
     "serve": "vite --port 8080"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.1.0",
+    "@emailjs/browser": "^4.3.3",
     "emailjs-com": "^3.2.0",
     "express": "^4.18.2",
     "nodemailer": "^6.9.9",
