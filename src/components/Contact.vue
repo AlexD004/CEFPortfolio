@@ -109,8 +109,8 @@ let fadeOut = () => {
 
 <template>
   <div class="wrapper">
-    <h2 class="yellowUnderline">Titre "Contact"</h2>
-    <p class="sousTitre">bla bla bla</p>
+    <h2 class="yellowUnderline">JE ME LAISSE TENTER</h2>
+    <p class="sousTitre"> </p>
 
     <form id="contactForm" v-on:submit.prevent >
 
