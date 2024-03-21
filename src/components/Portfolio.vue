@@ -66,6 +66,7 @@ export default {
         workLinkURL: "",
         featuredImage: "",
         galleryItems: [],
+        extrait: "",
 
         /* Works List : 'id' is used to target a specific work in array, id = position in array */
         works: [{
@@ -82,7 +83,7 @@ export default {
                 illustrator: false,
                 copywritting: false
             },
-            description: 'bla bla',
+            description: 'La grande difficulté graphique d’un site internet réside dans l’équilibre entre le design de la marque et la mise en valeur du portfolio. L’un ne doit pas gêner l’autre, altérer sa lecture, entrer en conflit. Pourtant, il est essentiel d’avoir une image de marque forte pour être reconnu au premier coup d’œil. Et le portfolio est primordial pour gagner la confiance des prospects. Grâce à mon expérience dans la direction artistique, nous avons trouvé une voie graphique cohérente et harmonieuse, qui sait mettre en avant le portfolio du client. La seconde question auquel un site internet de ce type fait face est la simplicité d’utilisation. Il y a en effet plusieurs sections à prendre en compte pour les prospects intéressés par une performance particulière. Mais pouvoir également afficher l’ensemble des travaux pour une vue d’ensemble. Le tout en limitant le nombre de clics pour une navigation optimisé. De part ma formation en développement web, ces interrogations sont mon quotidien. Nous avons également trouvé les meilleures solutions pour que l’expérience utilisateur soit optimale.',
             linkText: 'Visiter le site',
             linkURL: 'https://graphoreme.com',
 
@@ -128,7 +129,7 @@ export default {
                 illustrator: false,
                 copywritting: false
             },
-            description: 'bla bla',
+            description: 'Dans les métiers de l’accompagnement à la personne, il est important que le visage du conseiller apparaisse. Le capital sympathique et la confiance des prospects se mets en place plus aisément. Mais il est important de ne pas tomber dans le narcissisme, la priorité est justement, à ces prospects qui ont besoin d’aide. L’identité graphique et le webdesign sont là pour répondre à ces demandes. Comment faire pour que l’utilisateur vous voit, vous reconnaisse, et surtout, se sente écouté ? Pour gagner sa confiance, le prospect doit se sentir compris, avoir la sensation que son problème est déjà identifié et votre site, votre métier, vous-même, savez répondre exactement à ses besoins. Il y a donc un travail de webdesign pour que le portrait apparaisse tout en laissant la place au contenu. Les mots sont importants, ils doivent être mis en valeur. Sans pour autant noyer la page. J’ai pu, avec Elodie, travailler sur cet équilibre et livrer une maquette conforme à sa personnalité, son métier et ses souhaits.',
             linkText: 'Visiter le site (intégration par un tiers)',
             linkURL: 'https://www.elodielemoineconseil.com/',
 
@@ -174,7 +175,7 @@ export default {
                 illustrator: false,
                 copywritting: false
             },
-            description: 'bla bla',
+            description: 'Il y a plusieurs fonctionnalités à un site internet : prospecter, vente, vitrine, recolleter des données… Il faut avant tout définir le but premier de la présence digital. Pour Assur’Euro, c’est le recueil de données pour la mise en place d’un call center. Ce procédé nécessite des fonctionnalités précises, ici l’utilisation d’une API. Il s’agit de mécanismes qui permettent à deux composants logiciels de communiquer entre eux à l’aide d’un ensemble de définitions et de protocoles. Ainsi dans le cas d’Assur’Euro, les données confidentielles sont maintenues privées et stockées en toute sécurité. Connaître et respecter le RGPD ainsi que d’autres lois du web fait partie des performances du developper. Mon rôle est de vous en tenir informé, vous mettre en garde si certains de vos souhaits ne les respectent pas, et trouver les solutions pour répondre à la fonctionnalité souhaitée. S’articulent ensuite la direction artistique et le développement de la page. Nous avons pu créer le logo ainsi que la charte graphique en adéquation avec le domaine du service. Et enfin le développement de la page, pour que les données soit répertoriées proprement et utilisable aisément.',
             linkText: 'Visiter le site',
             linkURL: 'https://www.assureuro.offres-selectionnees.fr/',
 
@@ -220,7 +221,7 @@ export default {
                 illustrator: true,
                 copywritting: true
             },
-            description: 'bla bla',
+            description: 'La socketterie souhaite dans un premier temps, mettre en place le cahier des charges de son site internet. Il s’agit de la synthétisation de l’ensemble des fonctions qu’aura le projet final. On y prend en compte les spécifications techniques auxquels la page web répond, ainsi que les besoins qu’elle doit combler. Ici, La Socketterie vend des chaussettes dépareillées, symbole de la trisomie 21, et reverse un pourcentage de son bénéfice à des associations soutenant la trisomie 21. De plus, les chaussettes sont faites main. Ces caractéristiques permettent à la firme de se démarquer des autres. Ce sont les points à mettre en avant sur la page d’accueil. Pour la suite, il s’agit d’un site de vente. Il faut donc définir tous les aspects que celui-ci nécessite. Faut-il un espace client ou pas, où l’utilisateur peut voir ses commandes, ses factures, faire des réclamations, des retours… Il est nécessaire de maquetter la page vitrine : est-il possible, voir recommandé, de pouvoir classer l’affichage des articles ? À quoi ressemble une page d’article, quelles informations doit-on mettre en avant ? Des interrogations classiques pour un site de vente.  Enfin, le cahier des charges contient également la charte graphique et les aspects business.',
             linkText: 'Voir le pdf',
             linkURL: work04Pdf01,
 
@@ -266,7 +267,7 @@ export default {
                 illustrator: false,
                 copywritting: false
             },
-            description: 'bla bla',
+            description: 'Energie Travaux France est une page internet qui a pour but de recolleter les données d’utilisateurs pour la mise en place d’un call center. La fonctionnalité première de la page est donc ciblée et identifiée. Il est important de bien réfléchir à ce but premier de la présence digital, car une page internet de vente, d’un site vitrine ou de prospection n’aura pas le même design ni les mêmes contraintes d’expérience utilisateur. Réunir les données utilisateurs est un procédé nécessitant des fonctionnalités précises, ici l’utilisation d’une API. Il s’agit de mécanismes qui permettent à deux composants logiciels de communiquer entre eux à l’aide d’un ensemble de définitions et de protocoles. Ainsi, les données confidentielles sont maintenues privées et stockées en toute sécurité. Connaître et respecter le RGPD ainsi que d’autres lois du web fait partie des performances du developper. Mon rôle est de vous en tenir informé, vous mettre en garde si certains de vos souhaits ne les respectent pas, et trouver les solutions pour répondre à la fonctionnalité souhaitée. La suite de la mission implique la création du logo, de la charte graphique et du développement de la page internet.',
             linkText: 'Visiter le site',
             linkURL: 'https://www.energie-travaux-france.fr/',
 
@@ -336,9 +337,15 @@ export default {
     closeModal: function() {
         this.modalIsOpen = false;
     }
+  
+  },
 
-    
-  }
+  mounted: function mounted () {
+        let textSrc = this.$data.works[0].description;
+        let excerpt = textSrc.substring(0,209);
+
+        this.extrait = excerpt;
+}
 
 }
 
@@ -375,7 +382,7 @@ window.onresize = centerModal;
 
         <!-- Section Title -->
         <h2 class="yellowUnderline">MES COLLABORATIONS</h2>
-        <p class="sousTitre">Bla bla bla</p>
+        <p class="sousTitre"> </p>
 
         <!-- Works Section -->
         <div id="portfolioGallery">
@@ -389,7 +396,7 @@ window.onresize = centerModal;
                 <div class="workInfos">
                     <h3>{{ title }}</h3>
                     <p class="contextWork">{{ context }} - {{ date }}</p>
-                    <p class="descriptionWork">{{ description }}</p>
+                    <p class="descriptionWork extrait">{{ extrait }}<strong class="readMore"> Lire la suite...</strong></p>
                 </div>
                 <div class="workImage">
                     <img :src="`${ featuredImage.url }`" :alt="`${ featuredImage.alt }`" />
@@ -440,7 +447,7 @@ window.onresize = centerModal;
 <style scoped>
 
 .wrapper{
-    padding: 50px 0;
+    padding: 50px;
     position: relative;
     z-index:10;
     text-align: center;
@@ -529,10 +536,10 @@ window.onresize = centerModal;
     padding: 5px 0;
 }
 .descriptionWork{
-    margin: 40px 0;
+    margin: 15px 0;
 }
 p.linkWork{
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 p.linkWork a{
     font-weight: 700;
@@ -580,6 +587,13 @@ p.contactWork{
 }
 .work:first-child .workInfos .descriptionWork{
     display: inline;
+}
+.work:first-child .workInfos .descriptionWork .readMore{
+    font-weight: 700;
+    display: block;
+}
+.work:first-child .workInfos .descriptionWork .readMore:hover{
+    color:var(--c-pink);
 }
 .work:first-child .workImage{
     width: 100%;
@@ -670,6 +684,9 @@ p.contextWork{
 #carrousel,
 #modalInfos {
     width:50%;
+}
+#modalInfos{
+    max-width: 800px;
 }
 #carrousel,
 #carrousel img {

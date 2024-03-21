@@ -32,30 +32,50 @@ function autoHeightTextArea(){
 
 const userMail = import.meta.env.VITE_USER_MAIL;
 
-/* Set variables to : 1.check if form is not empty + 2.build the mail */
+
+// CONTROL //
+/* Set variables to check if form is not empty */
 const lastnameValue = ref("");
 const firstnameValue = ref("");
+const mailAddressValue = ref("");
 const objectValue = ref("");
 const messageValue = ref("");
 
 /* Set a variable to know if user already clicked on submit button */
 const submitOnce = ref(false);
+
+// ERROR //
 /* Set a content for all error message */
 const errMessage = ' - Ce champs est obligatoire';
+
+// SUCCESS //
+/* Set a variable to show success message */
+const isSuccessed = ref(false);
 
 
 function sendEmail() {
 
   try {
 
-      if ( firstnameValue.value.length < 1 || lastnameValue.value.length < 1 || objectValue.value.length < 1 || messageValue.value.length < 1 ) {
+      if ( firstnameValue.value.length < 1 || lastnameValue.value.length < 1 || mailAddressValue.value.length < 1 || objectValue.value.length < 1 || messageValue.value.length < 1 ) {
         throw new Error("All fields are required !");
       }
 
-      let bodyMail = "Bonjour,%0D%0AJe suis " + firstnameValue.value + " " + lastnameValue.value + ".%0D%0A%0D%0A" + messageValue.value; // Layout of mail content
-      let buildMail = "mailto:" + userMail + "?subject=" +  objectValue.value + "&body=" + bodyMail; // Build of the link with all infos
+      /* Function to send email with EmailJS */
+      emailjs.sendForm('service_klixwok', 'template_ed0w7eu', 'form').then(
+        (response) => {
 
-      window.location.href = buildMail; // It's just like a click on a link...
+          console.log('SUCCESS!', response.status, response.text);
+
+          document.querySelector('form').reset(); // Clean the form
+          isSuccessed.value = true; // Show success message
+          setTimeout( fadeOut , 3000 );
+
+        },
+        (error) => {
+          console.log('FAILED...', error);
+        },
+      );
 
     } catch (err){
 
@@ -70,54 +90,79 @@ let showError = (err) => {
     submitOnce.value = true; // Declare that form was submit, so we can display error styles
 }
 
+let fadeOut = () => {
+  var fadeTarget = document.getElementById("successMessage");
+  var fadeEffect = setInterval(function () {
+    if (!fadeTarget.style.opacity) {
+      fadeTarget.style.opacity = 1;
+    }
+    if (fadeTarget.style.opacity > 0) {
+      fadeTarget.style.opacity -= 0.01;
+    } else {
+      clearInterval(fadeEffect);
+      isSuccessed.value = false;
+    }
+  }, 10);
+}
+
 </script>
 
 <template>
   <div class="wrapper">
-    <h2 class="yellowUnderline">Titre "Contact"</h2>
-    <p class="sousTitre">bla bla bla</p>
+    <h2 class="yellowUnderline">JE ME LAISSE TENTER</h2>
+    <p class="sousTitre"> </p>
+
+    <form id="contactForm" v-on:submit.prevent >
+
+      <!-- LASTNAME : half column on desktop -->
+      <div class="formItem demiItem">
+        <label for="lastname">Votre NOM*<span :class="{ invalidMessage: lastnameValue.length < 1 && submitOnce == true }">{{ errMessage }}</span></label>
+        <input type="text" id="lastname" name="lastname" v-model="lastnameValue" :class="{ invalid: lastnameValue.length < 1  && submitOnce == true }" />
+      </div>
+
+      <!-- FIRSTNAME : half column on desktop -->
+      <div class="formItem demiItem">
+        <label for="firstname">Votre PRÉNOM *<span :class="{ invalidMessage: firstnameValue.length < 1  && submitOnce == true }">{{ errMessage }}</span></label>
+        <input type="text" id="firstname" name="firstname" v-model="firstnameValue" :class="{ invalid: firstnameValue.length < 1  && submitOnce == true }" />
+      </div>
+
+      <!-- MAIL -->
+      <div class="formItem">
+        <label for="object">EMAIL *<span :class="{ invalidMessage: mailAddressValue.length < 1  && submitOnce == true }">{{ errMessage }}</span></label>
+        <input type="text" id="mailAddress" name="mailAddress" v-model="mailAddressValue" :class="{ invalid: mailAddressValue.length < 1  && submitOnce == true }" />
+      </div>
+
+      <!-- OBJECT -->
+      <div class="formItem">
+        <label for="object">SUJET *<span :class="{ invalidMessage: objectValue.length < 1  && submitOnce == true }">{{ errMessage }}</span></label>
+        <input type="text" id="object" name="object" v-model="objectValue" :class="{ invalid: objectValue.length < 1  && submitOnce == true }" />
+      </div>
+
+      <!-- MESSAGE -->
+      <div class="formItem">
+        <label for="message">MESSAGE *<span :class="{ invalidMessage: messageValue.length < 1  && submitOnce == true }">{{ errMessage }}</span></label>
+        <textarea id="message" name="message" v-on:keyup="autoHeightTextArea" v-model="messageValue" :class="{ invalid: messageValue.length < 1  && submitOnce == true }" />
+      </div>
+
+    <!-- SUBMIT -->
+      <button type="submit" v-on:click="sendEmail();">
+        <ContactButton />
+      </button>
+
+    </form>
+
+    <div id="successMessage" :class="{ show: isSuccessed }">
+      Merci pour votre message !
+    </div>
+
   </div>
-
-  <form v-on:submit.prevent >
-
-    <!-- LASTNAME : half column on desktop -->
-    <div class="formItem demiItem">
-      <label for="lastname">Votre NOM*<span :class="{ invalidMessage: lastnameValue.length < 1 && submitOnce == true }">{{ errMessage }}</span></label>
-      <input type="text" id="lastname" name="lastname" v-model="lastnameValue" :class="{ invalid: lastnameValue.length < 1  && submitOnce == true }" />
-    </div>
-
-    <!-- FIRSTNAME : half column on desktop -->
-    <div class="formItem demiItem">
-      <label for="firstname">Votre PRÉNOM *<span :class="{ invalidMessage: firstnameValue.length < 1  && submitOnce == true }">{{ errMessage }}</span></label>
-      <input type="text" id="firstname" name="firstname" v-model="firstnameValue" :class="{ invalid: firstnameValue.length < 1  && submitOnce == true }" />
-    </div>
-
-    <!-- OBJECT -->
-    <div class="formItem">
-      <label for="object">SUJET *<span :class="{ invalidMessage: objectValue.length < 1  && submitOnce == true }">{{ errMessage }}e</span></label>
-      <input type="text" id="object" name="object" v-model="objectValue" :class="{ invalid: objectValue.length < 1  && submitOnce == true }" />
-    </div>
-
-    <!-- MESSAGE -->
-    <div class="formItem">
-      <label for="message">MESSAGE *<span :class="{ invalidMessage: messageValue.length < 1  && submitOnce == true }">{{ errMessage }}</span></label>
-      <textarea id="message" name="message" v-on:keyup="autoHeightTextArea" v-model="messageValue" :class="{ invalid: messageValue.length < 1  && submitOnce == true }" />
-    </div>
-
-   <!-- SUBMIT -->
-    <button type="submit" v-on:click="sendEmail();">
-      <ContactButton />
-    </button>
-
-  </form>
-
 </template>
 
 <style scoped>
 
 /* LAYOUT */
 .wrapper {
-  padding: 50px 0 0;
+  padding: 50px 0 30px;
   position: relative;
   z-index: 10;
 
@@ -148,6 +193,7 @@ form {
 /* GLOBAL DESIGN */
 .formItem label {
   font-weight: 700;
+  text-align: left;
 }
 .formItem input,
 .formItem textarea {
@@ -172,7 +218,7 @@ button[type="submit"] {
   outline: 0;
   border: 0;
 
-  margin: 30px 0 50px;
+  margin-top: 30px;
   width: 100%;
 
   display: flex;
@@ -202,6 +248,28 @@ span.invalidMessage {
   color: var(--c-pink);
   font-weight: 700;
   display: inline;
+}
+
+/* SUCCESS */
+#successMessage {
+    width: 90%;
+    max-width: 960px;
+    height: 50px;
+    
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+    border: 2px solid var(--c-success);
+    border-radius: 15px;
+    margin: 40px auto 0;
+
+    font-weight: 700;
+    color:var(--c-success);
+}
+
+#successMessage.show{
+  display: flex;
 }
 
 

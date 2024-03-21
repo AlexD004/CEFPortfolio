@@ -6,7 +6,7 @@
 
 <template>
 
-  <header>
+  <footer>
 
     <div class="wrapper">
       
@@ -30,7 +30,7 @@
         <div id="copyright">Alexandre Dupré - Tous droits réservés - Dernière mise à jour le XX/XX/2024</div>
     </div>
 
-  </header>
+  </footer>
 
 </template>
 

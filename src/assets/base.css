@@ -7,6 +7,7 @@
   --c-yellow: #F1C513;
   --c-pink: #C31765;
   --c-beige: #F8F0F1;
+  --c-success: #4CB944;
 
   --c-text-light: var(--c-beige);
   --c-text-dark: var(--c-dark-blue);
