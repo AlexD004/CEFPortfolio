@@ -67,7 +67,7 @@ function sendEmail() {
 
           console.log('SUCCESS!', response.status, response.text);
 
-          document.querySelector('form').reset(); // Clean the form
+          document.getElementById('contactForm').reset(); // Clean the form
           isSuccessed.value = true; // Show success message
           setTimeout( fadeOut , 3000 );
 
