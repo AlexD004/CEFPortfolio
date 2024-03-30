@@ -27,7 +27,7 @@
                 <IconesReseauxSociaux :inFooter="true" />
             </div>
         </div>
-        <div id="copyright">Alexandre Dupré - Tous droits réservés - Dernière mise à jour le XX/XX/2024</div>
+        <div id="copyright">Alexandre Dupré - Tous droits réservés - Dernière mise à jour le 30/03/2024</div>
     </div>
 
   </footer>
