@@ -70,8 +70,9 @@ VITE_USER_MAIL="myadressmail@example.com"
 ### :art: Change fonts and colors
 
 :open_file_folder: vue-project
-    :open_file_folder: assets
-        :page_facing_up: base.css        
+    :open_file_folder: src
+            :open_file_folder: assets
+                :page_facing_up: base.css        
 
 You can edit fonts and colors using css variables. You will find all in this file :
 1. In the main folder 'vue-project', search the folder 'src'
