@@ -52,7 +52,6 @@ const errMessage = ' - Ce champs est obligatoire';
 /* Set a variable to show success message */
 const isSuccessed = ref(false);
 
-
 function sendEmail() {
 
   try {
@@ -67,9 +66,12 @@ function sendEmail() {
 
           console.log('SUCCESS!', response.status, response.text);
 
-          document.getElementById('contactForm').reset(); // Clean the form
           isSuccessed.value = true; // Show success message
-          setTimeout( fadeOut , 3000 );
+          setTimeout( fadeOut , 3000 ); // Wait 3s and fade out the success message
+          setTimeout(() => {
+            location.reload(); // To clear form
+          }, 4000);
+          
 
         },
         (error) => {
@@ -117,7 +119,7 @@ let fadeOut = () => {
       <!-- LASTNAME : half column on desktop -->
       <div class="formItem demiItem">
         <label for="lastname">Votre NOM*<span :class="{ invalidMessage: lastnameValue.length < 1 && submitOnce == true }">{{ errMessage }}</span></label>
-        <input type="text" id="lastname" name="lastname" v-model="lastnameValue" :class="{ invalid: lastnameValue.length < 1  && submitOnce == true }" />
+        <input type="text" id="lastname" name="lastname" ref="lastname" v-model="lastnameValue" :class="{ invalid: lastnameValue.length < 1  && submitOnce == true }" />
       </div>
 
       <!-- FIRSTNAME : half column on desktop -->
